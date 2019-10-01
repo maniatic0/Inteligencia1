@@ -1,0 +1,19 @@
+# The 3-Puzzle
+4
+# We have 4 positions
+4 4 4 4 
+# 
+# This is the Row Distribution
+# 0 1 2 3 => 0 1 2 3
+# 
+# Valid Movements for position (0, 0)
+0 x - - => x 0 - - LABEL down COST 1
+# Valid Movements for position (1, 0)
+- 0 x - => - x 0 - LABEL down COST 1
+x 0 - - => 0 x - - LABEL up COST 1
+# Valid Movements for position (2, 0)
+- - 0 x => - - x 0 LABEL down COST 1
+- x 0 - => - 0 x - LABEL up COST 1
+# Valid Movements for position (3, 0)
+- - x 0 => - - 0 x LABEL up COST 1
+GOAL 0 1 2 3
