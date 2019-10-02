@@ -7,7 +7,6 @@
 #include <memory>
 #include <utility>
 
-
 /* Node Color */
 enum class Color { White = 0, Gray = 1, Black = 2 };
 
@@ -16,7 +15,8 @@ class Node : public std::enable_shared_from_this<Node> {
 public:
   /* Create a Node with a state from a parent with a rule. DO NOT CALL this
    * directly */
-  inline Node(state_t state, std::shared_ptr<Node> parent, int rule)
+  explicit inline Node(state_t state,
+              std::shared_ptr<Node> parent, int rule)
       : m_parent(std::move(parent)), m_rule(rule), m_state(state) {}
 
   Node(Node &&) noexcept = default;
@@ -28,7 +28,8 @@ public:
   /* Create a Node with a state from a parent with a rule */
   static std::shared_ptr<Node>
   CreateNode(state_t state, std::shared_ptr<Node> parent, int rule) {
-    return std::make_shared<Node>(state, std::move(parent), rule);
+    return std::make_shared<Node>(state, std::move(parent),
+                                  rule);
   }
 
   /* Get Parent Node */
