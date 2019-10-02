@@ -1,6 +1,7 @@
 #ifndef NODE_HPP
 #define NODE_HPP 1
 
+#include <cstdio>
 #include <memory>
 #include <utility>
 
@@ -10,10 +11,11 @@ enum class Color { White = 0, Gray = 1, Black = 2 };
 /* Node Class to help save paths when iterating through a problem */
 class Node : public std::enable_shared_from_this<Node> {
 public:
-  /* Create a Node with a state from a parent with a rule. DO NOT CALL this directly */
+  /* Create a Node with a state from a parent with a rule. DO NOT CALL this
+   * directly */
   inline Node(state_t state, std::shared_ptr<Node> parent, int rule)
-      :  m_parent(std::move(parent)), m_rule(rule), m_state(state) {}
-  
+      : m_parent(std::move(parent)), m_rule(rule), m_state(state) {}
+
   Node(Node &&) noexcept = default;
   Node(const Node &) = default;
   Node &operator=(Node &&) noexcept = default;
@@ -50,5 +52,22 @@ private:
   /* Our current state */
   state_t m_state;
 };
+
+/* Prints to console a path. It prints from the goal to the start */
+void PrintPath(std::shared_ptr<Node> node) {
+  std::printf("Printing path from goal to ORIGIN\n");
+  // The variable node contains the goal node
+  while (node->GetParent() != nullptr) {
+    print_state(stdout, node->GetState());
+    std::printf("  From %s (cost %d), goal=%d\n",
+                get_fwd_rule_label(node->GetRule()),
+                get_fwd_rule_cost(node->GetRule()), is_goal(node->GetState()));
+
+    node = node->GetParent();
+  }
+
+  print_state(stdout, node->GetState());
+  std::printf(" ORIGIN, goal=%d\n", is_goal(node->GetState()));
+}
 
 #endif

@@ -49,19 +49,21 @@ int main(int argc, char **argv) {
   print_state(stdout, &state);
   printf("\n");
 
-  // Setup
+  // Setup. Put Start node in queue to open and mark it as black
   state_map_add(color_map, &state, static_cast<int>(Color::Black));
   std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1);
   open.push(std::move(node));
   node = nullptr;
 
+  // While we have something to open
   while (!open.empty()) {
 
+    // Get the top node
     node = open.front();
     open.pop();
     state = *node->GetState();
 
-    // We finished
+    // If we finished
     if (is_goal(&state)) {
       found = true;
       break;
@@ -85,6 +87,7 @@ int main(int argc, char **argv) {
       }
     }
 
+    // Get State of the current node and mark it black
     state = *node->GetState();
     state_map_add(color_map, &state, static_cast<int>(Color::Black));
   }
@@ -94,19 +97,8 @@ int main(int argc, char **argv) {
     return 0;
   }
 
-  std::printf("Printing path from goal to ORIGIN\n");
-  // The variable node contains the goal node
-  while (node->GetParent() != nullptr) {
-    print_state(stdout, node->GetState());
-    std::printf("  From %s (cost %d), goal=%d\n",
-                get_fwd_rule_label(node->GetRule()),
-                get_fwd_rule_cost(node->GetRule()), is_goal(node->GetState()));
-
-    node = node->GetParent();
-  }
-
-  print_state(stdout, node->GetState());
-  std::printf(" ORIGIN, goal=%d\n", is_goal(node->GetState()));
+  // Print path
+  PrintPath(node);
 
   return 0;
 }
