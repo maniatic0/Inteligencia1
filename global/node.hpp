@@ -1,9 +1,12 @@
 #ifndef NODE_HPP
 #define NODE_HPP 1
 
+#include <cstdint>
 #include <cstdio>
+#include <inttypes.h>
 #include <memory>
 #include <utility>
+
 
 /* Node Color */
 enum class Color { White = 0, Gray = 1, Black = 2 };
@@ -62,18 +65,25 @@ private:
 /* Prints to console a path. It prints from the goal to the start */
 void PrintPath(std::shared_ptr<Node> node) {
   std::printf("Printing path from goal to ORIGIN\n");
+
+  std::int64_t pathCost = 0;
+
   // The variable node contains the goal node
   while (node->GetParent() != nullptr) {
     print_state(stdout, node->GetState());
-    std::printf("  From %s (cost %d), goal=%d\n",
+    pathCost += get_fwd_rule_cost(node->GetRule());
+    std::printf("  From %s (cost %d), goal=%d,",
                 get_fwd_rule_label(node->GetRule()),
                 get_fwd_rule_cost(node->GetRule()), is_goal(node->GetState()));
+
+    std::printf(" accumulated=%" PRId64 "\n", pathCost);
 
     node = node->GetParent();
   }
 
   print_state(stdout, node->GetState());
-  std::printf(" ORIGIN, goal=%d\n", is_goal(node->GetState()));
+  std::printf(" ORIGIN, goal=%d", is_goal(node->GetState()));
+  std::printf(" accumulated=%" PRId64 "\n", pathCost);
 }
 
 #endif
