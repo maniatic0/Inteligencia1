@@ -34,8 +34,14 @@ public:
   /* Get Rule from which we were derived */
   inline int GetRule() { return m_rule; }
 
+  /* Set Rule from which we were derived */
+  inline void SetRule(int rule) { m_rule = rule; }
+
   /* Get Associated State */
   inline const state_t *GetState() { return &m_state; }
+
+  /* Set Associated State */
+  inline void GetState(state_t state) { m_state = state; }
 
   /* Create a new node with this one as its parent */
   inline std::shared_ptr<Node> MakeNode(state_t state, int rule) {
