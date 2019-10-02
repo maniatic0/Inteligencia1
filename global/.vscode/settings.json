@@ -23,6 +23,7 @@
         "xutility": "cpp",
         "memory": "cpp",
         "iosfwd": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "concepts": "cpp"
     }
 }

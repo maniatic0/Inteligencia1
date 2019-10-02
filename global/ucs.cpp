@@ -56,8 +56,9 @@ int main(int argc, char **argv) {
   state_map_add(color_map, &state, static_cast<int>(Color::Gray));
   state_map_add(cost_map, &state, 0);
   std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1);
-  open.Add(0, 0, std::move(node));
+  open.Add(0, 0, node);
   node = nullptr;
+  std::shared_ptr<Node> child_node;
 
   int parent_cost = -1;
   int child_new_cost = -1;
@@ -94,12 +95,21 @@ int main(int argc, char **argv) {
           static_cast<Color>(*child_color) == Color::White) {
         // add to open with color gray
         state_map_add(color_map, &child, static_cast<int>(Color::Gray));
+        // Update Cost
         state_map_add(cost_map, &child, child_new_cost);
-        open.Add(child_new_cost, child_new_cost, node->MakeNode(child, ruleid));
+        // Add with proprity
+        child_node = node->MakeNode(child, ruleid);
+        open.Add(child_new_cost, child_new_cost, child_node);
+        child_node = nullptr;
       } else if (child_new_cost < *child_cost) {
+        // update open child
         assert(static_cast<Color>(*child_color) == Color::Gray);
+        // Update Cost
         state_map_add(cost_map, &child, child_new_cost);
-        open.Add(child_new_cost, child_new_cost, node->MakeNode(child, ruleid));
+        // Add with proprity
+        child_node = node->MakeNode(child, ruleid);
+        open.Add(child_new_cost, child_new_cost, child_node);
+        child_node = nullptr;
       }
     }
 
