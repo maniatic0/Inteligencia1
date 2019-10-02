@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
   state_map_add(color_map, &state, static_cast<int>(Color::Gray));
   state_map_add(cost_map, &state, 0);
   std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1);
-  open.Add(0, 0, node);
+  open.Add(0, 0, std::move(node));
   node = nullptr;
 
   int parent_cost = -1;
