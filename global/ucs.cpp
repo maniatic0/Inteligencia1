@@ -22,6 +22,7 @@ int main(int argc, char **argv) {
   ruleid_iterator_t iter; // ruleid_terator_t is the type defined by the PSVN
                           // API successor/predecessor iterators.
   int ruleid;             // an iterator returns a number identifying a rule
+  int childHistory;       // Child history for pruning
 
   PriorityQueue<std::shared_ptr<Node>>
       open; // used for the states we have generated but not
@@ -52,10 +53,13 @@ int main(int argc, char **argv) {
   print_state(stdout, &state);
   printf("\n");
 
-  // Setup. Put Start node in queue to open, mark it as black and put its cost to 0
+  // Setup. Put Start node in queue to open, mark it as black and put its cost
+  // to 0
   state_map_add(color_map, &state, static_cast<int>(Color::Gray));
   state_map_add(cost_map, &state, 0);
-  std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1);
+  int currHistory = init_history;
+  std::shared_ptr<Node> node =
+      Node::CreateNode(state, nullptr, -1, currHistory);
   open.Add(0, 0, std::move(node));
   node = nullptr;
 
@@ -70,6 +74,7 @@ int main(int argc, char **argv) {
     node = open.Top();
     open.Pop();
     state = *node->GetState();
+    currHistory = node->GetHistory();
 
     // If we finished
     if (is_goal(&state)) {
@@ -81,8 +86,14 @@ int main(int argc, char **argv) {
     init_fwd_iter(&iter, &state); // initialize the child iterator
     while ((ruleid = next_ruleid(&iter)) >= 0) {
 
+      // Check for history pruning
+      if (fwd_rule_valid_for_history(currHistory, ruleid) == 0) {
+        continue;
+      }
+
       // Generate Child
       apply_fwd_rule(ruleid, &state, &child);
+      childHistory = next_fwd_history(currHistory, ruleid);
 
       child_new_cost = parent_cost + get_fwd_rule_cost(ruleid);
 
@@ -97,14 +108,14 @@ int main(int argc, char **argv) {
         // Update Cost
         state_map_add(cost_map, &child, child_new_cost);
         // Add with priority
-        open.Add(child_new_cost, child_new_cost, node->MakeNode(child, ruleid));
+        open.Add(child_new_cost, child_new_cost, node->MakeNode(child, ruleid, childHistory));
       } else if (child_new_cost < *child_cost) {
         // update open child
         assert(static_cast<Color>(*child_color) == Color::Gray);
         // Update Cost
         state_map_add(cost_map, &child, child_new_cost);
         // Add with priority
-        open.Add(child_new_cost, child_new_cost, node->MakeNode(child, ruleid));
+        open.Add(child_new_cost, child_new_cost, node->MakeNode(child, ruleid, childHistory));
       }
     }
 

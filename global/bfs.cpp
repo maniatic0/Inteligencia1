@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
   ruleid_iterator_t iter; // ruleid_terator_t is the type defined by the PSVN
                           // API successor/predecessor iterators.
   int ruleid;             // an iterator returns a number identifying a rule
-  int childHistory; // Child history for pruning
+  int childHistory;       // Child history for pruning
 
   std::queue<std::shared_ptr<Node>>
       open; // used for the states we have generated but not yet
@@ -53,7 +53,8 @@ int main(int argc, char **argv) {
   // Setup. Put Start node in queue to open and mark it as black
   state_map_add(color_map, &state, static_cast<int>(Color::Black));
   int currHistory = init_history;
-  std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1, currHistory);
+  std::shared_ptr<Node> node =
+      Node::CreateNode(state, nullptr, -1, currHistory);
   open.push(std::move(node));
   node = nullptr;
 
