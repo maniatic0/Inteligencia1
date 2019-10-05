@@ -21,6 +21,7 @@ int main(int argc, char **argv) {
   ruleid_iterator_t iter; // ruleid_terator_t is the type defined by the PSVN
                           // API successor/predecessor iterators.
   int ruleid;             // an iterator returns a number identifying a rule
+  int childHistory; // Child history for pruning
 
   std::queue<std::shared_ptr<Node>>
       open; // used for the states we have generated but not yet
@@ -51,7 +52,8 @@ int main(int argc, char **argv) {
 
   // Setup. Put Start node in queue to open and mark it as black
   state_map_add(color_map, &state, static_cast<int>(Color::Black));
-  std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1);
+  int currHistory = init_history;
+  std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1, currHistory);
   open.push(std::move(node));
   node = nullptr;
 
@@ -62,6 +64,7 @@ int main(int argc, char **argv) {
     node = open.front();
     open.pop();
     state = *node->GetState();
+    currHistory = node->GetHistory();
 
     // If we finished
     if (is_goal(&state)) {
@@ -73,8 +76,14 @@ int main(int argc, char **argv) {
     init_fwd_iter(&iter, &state); // initialize the child iterator
     while ((ruleid = next_ruleid(&iter)) >= 0) {
 
+      // Check for history pruning
+      if (fwd_rule_valid_for_history(currHistory, ruleid) == 0) {
+        continue;
+      }
+
       // Generate Child
       apply_fwd_rule(ruleid, &state, &child);
+      childHistory = next_fwd_history(currHistory, ruleid);
 
       // Child Color
       const int *child_color = state_map_get(color_map, &child);
@@ -83,7 +92,7 @@ int main(int argc, char **argv) {
           static_cast<Color>(*child_color) == Color::White) {
         // add to open with color gray
         state_map_add(color_map, &child, static_cast<int>(Color::Gray));
-        open.push(node->MakeNode(child, ruleid));
+        open.push(node->MakeNode(child, ruleid, childHistory));
       }
     }
 

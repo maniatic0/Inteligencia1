@@ -13,11 +13,12 @@ enum class Color { White = 0, Gray = 1, Black = 2 };
 /* Node Class to help save paths when iterating through a problem */
 class Node : public std::enable_shared_from_this<Node> {
 public:
-  /* Create a Node with a state from a parent with a rule. DO NOT CALL this
-   * directly */
-  explicit inline Node(state_t state,
-              std::shared_ptr<Node> parent, int rule)
-      : m_parent(std::move(parent)), m_rule(rule), m_state(state) {}
+  /* Create a Node with a state from a parent with a rule and history. DO NOT
+   * CALL this directly */
+  explicit inline Node(state_t state, std::shared_ptr<Node> parent, int rule,
+                       int history)
+      : m_parent(std::move(parent)), m_rule(rule), m_state(state),
+        m_history(history) {}
 
   Node(Node &&) noexcept = default;
   Node(const Node &) = default;
@@ -25,15 +26,18 @@ public:
   Node &operator=(const Node &) = default;
   inline ~Node() = default;
 
-  /* Create a Node with a state from a parent with a rule */
-  static std::shared_ptr<Node>
-  CreateNode(state_t state, std::shared_ptr<Node> parent, int rule) {
-    return std::make_shared<Node>(state, std::move(parent),
-                                  rule);
+  /* Create a Node with a state from a parent with a rule and history */
+  static std::shared_ptr<Node> CreateNode(state_t state,
+                                          std::shared_ptr<Node> parent,
+                                          int rule, int history) {
+    return std::make_shared<Node>(state, std::move(parent), rule, history);
   }
 
   /* Get Parent Node */
   inline std::shared_ptr<Node> GetParent() { return m_parent; }
+
+  /* Set Parent Node */
+  inline void SetParent(std::shared_ptr<Node> parent) { m_parent = parent; }
 
   /* Get Rule from which we were derived */
   inline int GetRule() { return m_rule; }
@@ -45,11 +49,17 @@ public:
   inline const state_t *GetState() { return &m_state; }
 
   /* Set Associated State */
-  inline void GetState(state_t state) { m_state = state; }
+  inline void SetState(state_t state) { m_state = state; }
+
+  /* Set History */
+  inline int GetHistory() { return m_history; }
+
+  /* Set History */
+  inline void SetHistory(int history) { m_history = history; }
 
   /* Create a new node with this one as its parent */
-  inline std::shared_ptr<Node> MakeNode(state_t state, int rule) {
-    return std::make_shared<Node>(state, shared_from_this(), rule);
+  inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history) {
+    return std::make_shared<Node>(state, shared_from_this(), rule, history);
   }
 
 private:
@@ -61,6 +71,9 @@ private:
 
   /* Our current state */
   state_t m_state;
+
+  /* History of this node */
+  int m_history = -1;
 };
 
 /* Prints to console a path. It prints from the goal to the start */
