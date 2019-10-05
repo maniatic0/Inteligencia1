@@ -24,6 +24,8 @@
         "memory": "cpp",
         "iosfwd": "cpp",
         "typeinfo": "cpp",
-        "concepts": "cpp"
+        "concepts": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp"
     }
 }
