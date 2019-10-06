@@ -1,0 +1,9 @@
+depth=1 generated=17 factor=17.000000 elapsed=0ms nodesPerMs=1.#INF00
+depth=2 generated=187 factor=11.000000 elapsed=0ms nodesPerMs=1.#INF00
+depth=3 generated=1797 factor=9.609626 elapsed=0ms nodesPerMs=1.#INF00
+depth=4 generated=16622 factor=9.249861 elapsed=15ms nodesPerMs=1108.133333
+depth=5 generated=152503 factor=9.174768 elapsed=93ms nodesPerMs=1639.817204
+depth=6 generated=1398011 factor=9.167105 elapsed=812ms nodesPerMs=1721.688424
+depth=7 generated=12819040 factor=9.169484 elapsed=7422ms nodesPerMs=1727.167879
+depth=8 generated=117566004 factor=9.171202 elapsed=65117ms nodesPerMs=1805.457930
+depth=9 generated=1078292988 factor=9.171809 elapsed=581739ms nodesPerMs=1853.568332

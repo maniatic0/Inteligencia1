@@ -1,0 +1,8 @@
+depth=1 generated=14 factor=14.000000 elapsed=0ms nodesPerMs=1.#INF00
+depth=2 generated=196 factor=14.000000 elapsed=0ms nodesPerMs=1.#INF00
+depth=3 generated=2744 factor=14.000000 elapsed=1ms nodesPerMs=2744.000000
+depth=4 generated=38416 factor=14.000000 elapsed=18ms nodesPerMs=2134.222222
+depth=5 generated=537824 factor=14.000000 elapsed=269ms nodesPerMs=1999.345725
+depth=6 generated=7529536 factor=14.000000 elapsed=3954ms nodesPerMs=1904.283257
+depth=7 generated=105413504 factor=14.000000 elapsed=50659ms nodesPerMs=2080.844549
+depth=8 generated=1475789056 factor=14.000000 elapsed=698021ms nodesPerMs=2114.247359
