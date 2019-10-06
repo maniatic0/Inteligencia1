@@ -77,6 +77,12 @@ int main() {
     std::printf(" nodesPerMs=%f\n", static_cast<double>(currNodeAmount) /
                                         static_cast<double>(time));
 
+    if (currNodeAmount == 0llu) {
+      break;
+    }
+
     prevNodeAmount = currNodeAmount;
   }
+
+  std::printf("Finished the Search Tree");
 }
