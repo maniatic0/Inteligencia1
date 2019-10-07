@@ -259,3 +259,4 @@ bin/
 *.bfs
 *.ucs
 *.branch
+*.dfs
