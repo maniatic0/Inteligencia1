@@ -7,30 +7,39 @@
 
 #define MAX_LINE_LENGTH 999
 
-Node dfs_visit(std::shared_ptr<Node> node) {
-  state = *node->GetState();
-  currHistory = node->GetHistory();
+/* Avoid save useless stuff in stack (we don't save them because we can
+ * regenerate them) */
+int ruleid;       // Generated Rule id
+state_t child;    // Generated Child
+int childHistory; // Generated Child History
+
+std::shared_ptr<Node> dfs_visit(std::shared_ptr<Node> node) {
   // If we finished
-  if (is_goal(&state)) {
-    return state;
+  if (is_goal(node->GetState())) {
+    return node;
   }
+
+  ruleid_iterator_t iter;  // ruleid_terator_t is the type defined by the PSVN
+  std::shared_ptr<Node> m; //
+
   // LOOP THROUGH SUCC
-  init_fwd_iter(&iter, &state); // initialize the child iterator
+  init_fwd_iter(&iter, node->GetState()); // initialize the child iterator
   while ((ruleid = next_ruleid(&iter)) >= 0) {
     // Check for history pruning
-    if (fwd_rule_valid_for_history(currHistory, ruleid) == 0) {
+    if (fwd_rule_valid_for_history(node->GetHistory(), ruleid) == 0) {
       continue;
     }
     // Generate Child
-    apply_fwd_rule(ruleid, &state, &child);
-    currHistory = next_fwd_history(currHistory, ruleid);
+    apply_fwd_rule(ruleid, node->GetState(), &child);
+    childHistory = next_fwd_history(node->GetHistory(), ruleid);
 
-    std::shared_ptr<Node> m = dfs_visit(child);
-    
+    m = dfs_visit(node->MakeNode(child, ruleid, childHistory));
+
     // We traverse
     if (m != nullptr) {
       return m;
     }
+    m = nullptr;
   }
   return nullptr;
 }
@@ -42,16 +51,9 @@ int main(int argc, char **argv) {
   state_t state; // state_t is defined by the PSVN API. It is the type used for
                  // individual states.
 
-  // VARIABLES FOR ITERATING THROUGH state's SUCCESSORS
-  state_t child;
-  ruleid_iterator_t iter; // ruleid_terator_t is the type defined by the PSVN
-                          // API successor/predecessor iterators.
-  int ruleid;             // an iterator returns a number identifying a rule
-  int childHistory;       // Child history for pruning
-
   // READ A LINE OF INPUT FROM stdin
   printf("Please enter a state followed by ENTER: ");
-  if (fgets(str, sizeof str, stdin) == NULL) {
+  if (fgets(str, sizeof(str), stdin) == NULL) {
     printf("Error: empty input line.\n");
     return -1;
   }
@@ -68,16 +70,16 @@ int main(int argc, char **argv) {
   printf("\n");
 
   int currHistory = init_history;
-  std::shared_ptr<Node> node = Node::CreateNode(state, nullptr, -1, currHistory);
-  
-  if (dfs_visit(node) == nullptr) {
+  std::shared_ptr<Node> node =
+      Node::CreateNode(state, nullptr, -1, currHistory);
+
+  if ((node = dfs_visit(node)) == nullptr) {
     std::printf("Path not found\n");
     return 0;
   }
 
   // Print path
   PrintPath(node);
-  node = nullptr;
 
   return 0;
 }
