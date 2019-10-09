@@ -13,12 +13,12 @@ enum class Color { White = 0, Gray = 1, Black = 2 };
 /* Node Class to help save paths when iterating through a problem */
 class Node : public std::enable_shared_from_this<Node> {
 public:
-  /* Create a Node with a state from a parent with a rule and history. DO NOT
-   * CALL this directly */
+  /* Create a Node with a state from a parent with a rule, history and
+   * accumulated cost. DO NOT CALL this directly */
   explicit inline Node(state_t state, std::shared_ptr<Node> parent, int rule,
-                       int history)
+                       int history, long long unsigned cost = 0)
       : m_parent(std::move(parent)), m_rule(rule), m_state(state),
-        m_history(history) {}
+        m_history(history), m_cost(cost) {}
 
   Node(Node &&) noexcept = default;
   Node(const Node &) = default;
@@ -26,11 +26,14 @@ public:
   Node &operator=(const Node &) = default;
   inline ~Node() = default;
 
-  /* Create a Node with a state from a parent with a rule and history */
+  /* Create a Node with a state from a parent with a rule, history and
+   * accumulated cost */
   static std::shared_ptr<Node> CreateNode(state_t state,
                                           std::shared_ptr<Node> parent,
-                                          int rule, int history) {
-    return std::make_shared<Node>(state, std::move(parent), rule, history);
+                                          int rule, int history,
+                                          long long unsigned cost = 0) {
+    return std::make_shared<Node>(state, std::move(parent), rule, history,
+                                  cost);
   }
 
   /* Get Parent Node */
@@ -57,9 +60,16 @@ public:
   /* Set History */
   inline void SetHistory(int history) { m_history = history; }
 
+  /* Get Cost */
+  inline long long unsigned GetCost() { return m_cost; }
+
+  /* Set Cost */
+  inline void SetCost(long long unsigned cost) { m_cost = cost; }
+
   /* Create a new node with this one as its parent */
   inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history) {
-    return std::make_shared<Node>(state, shared_from_this(), rule, history);
+    return std::make_shared<Node>(state, shared_from_this(), rule, history,
+                                  m_cost + get_fwd_rule_cost(GetRule()));
   }
 
 private:
@@ -74,6 +84,9 @@ private:
 
   /* History of this node */
   int m_history = -1;
+
+  /* Accumulated path cost */
+  long long unsigned m_cost = 0;
 };
 
 /* Prints to console a path. It prints from the goal to the start */
