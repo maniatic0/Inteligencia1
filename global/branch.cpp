@@ -16,7 +16,7 @@ int ruleid;       // Generated Rule id
 state_t child;    // Generated Child
 int childHistory; // Generated Child History
 
-long long unsigned brachADA(std::shared_ptr<Node> node, unsigned depth) {
+long long unsigned branchID(std::shared_ptr<Node> node, unsigned depth) {
   // Nodes just after the bound
   if (depth >= bound) {
     return 1llu;
@@ -39,7 +39,7 @@ long long unsigned brachADA(std::shared_ptr<Node> node, unsigned depth) {
     childHistory = next_fwd_history(node->GetHistory(), ruleid);
 
     generated +=
-        brachADA(node->MakeNode(child, ruleid, childHistory), depth + 1llu);
+        branchID(node->MakeNode(child, ruleid, childHistory), depth + 1llu);
   }
   return generated;
 }
@@ -67,7 +67,7 @@ int main() {
   while (true) {
     ++bound;
     watch.Start();
-    currNodeAmount = brachADA(node, 0);
+    currNodeAmount = branchID(node, 0);
     time = watch.Stop<Stopwatch::ms>();
     std::printf("depth=%u", bound);
     std::printf(" generated=%" PRIu64, currNodeAmount);
