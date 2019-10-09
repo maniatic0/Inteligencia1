@@ -260,3 +260,4 @@ bin/
 *.ucs
 *.branch
 *.dfs
+*.iducs
