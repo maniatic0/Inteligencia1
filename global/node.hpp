@@ -67,9 +67,9 @@ public:
   inline void SetCost(long long unsigned cost) { m_cost = cost; }
 
   /* Create a new node with this one as its parent */
-  inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history) {
+  inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history, long long unsigned heuristic = 0) {
     return std::make_shared<Node>(state, shared_from_this(), rule, history,
-                                  m_cost + get_fwd_rule_cost(GetRule()));
+                                  m_cost + get_fwd_rule_cost(GetRule()) + heuristic);
   }
 
 private:

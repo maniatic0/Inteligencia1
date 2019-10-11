@@ -50,8 +50,26 @@ def generateMovementsRules(position, height, width):
 
     return validMovements
 
+def generateFunc(width, N):
+    format = f"""
+        #include <cstdlib>
+        long long unsigned heuristic(const state_t *from) {{
+            long long unsigned res = 0;
+            unsigned arr[{N}] = {{{','.join([str(i) for i in range(N)])}}};
+            int x, y, x_r, y_r;
+            for(int i = 0; i<{N}; ++i){{
+                x = from->vars[i] % {width};
+                y = from->vars[i] / {width};
+                x_r = arr[i] % {width};
+                y_r = arr[i] / {width};
+                res += std::abs(x - x_r) + std::abs(y - y_r);
+            }}
+            return res;
+        }}
+    """
+    return format
 
-def main(height, width, filename):
+def main(height, width, filename, filename_header):
 
     N = height * witdh
 
@@ -89,6 +107,10 @@ def main(height, width, filename):
         serializer.AddGoal([i for i in range(N)])
 
         f.close()
+    with open(filename_header, "w") as f:
+        print(generateFunc(width, width * height), file = f)
+        f.close()
+        
 
 
 if __name__ == "__main__":
@@ -130,12 +152,13 @@ if __name__ == "__main__":
         exit(-1)
 
     filename = str(height * witdh - 1) + "_puzzle.psvn"
+    filename_header = str(height * witdh - 1) + "_puzzle.man.hpp"
 
     if len(sys.argv) == 4:
         filename = sys.argv[3]
 
     try:
-        main(height, witdh, filename)
+        main(height, witdh, filename, filename_header)
         exit(0)
     except Exception as ex:
         print("Error while processing", file=sys.stderr)

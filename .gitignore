@@ -261,3 +261,4 @@ bin/
 *.branch
 *.dfs
 *.iducs
+*.ida

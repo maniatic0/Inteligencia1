@@ -50,6 +50,10 @@ psvn2c_abstraction.c:
 	$(CXX) $(OPT) ../global/iducs.cpp -include $< -o $@
 	rm -f $*.c
 
+%.ida: %.c ../global/ida.cpp
+	$(CXX) $(OPT) ../global/ida.cpp -include $< -include $*.man.hpp -o $@
+	rm -f $*.c
+
 .PHONY: clean
 clean:
-	rm -fr *.succ *.dist *.distSummary *.bfs *.dfs *.ucs *.iducs *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
+	rm -fr *.succ *.dist *.distSummary *.bfs *.dfs *.ucs *.iducs *.ida *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
