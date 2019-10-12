@@ -19,9 +19,9 @@ long long unsigned bound = 0;
 int ruleid;       // Generated Rule id
 state_t child;    // Generated Child
 int childHistory; // Generated Child History
-std::pair<std::shared_ptr<Node>, long long unsigned> calc; // Calculation made by idUCS
+std::pair<std::shared_ptr<Node>, long long unsigned> calc; // Calculation made by ida
 
-std::pair<std::shared_ptr<Node>, long long unsigned> idUCS(std::shared_ptr<Node> node) {
+std::pair<std::shared_ptr<Node>, long long unsigned> ida(std::shared_ptr<Node> node) {
   // Nodes just after the bound
   if (node->GetCost() > bound) {
     return std::make_pair<std::shared_ptr<Node>, long long unsigned>(std::shared_ptr<Node>(nullptr), node->GetCost());
@@ -49,7 +49,7 @@ std::pair<std::shared_ptr<Node>, long long unsigned> idUCS(std::shared_ptr<Node>
     childHistory = next_fwd_history(node->GetHistory(), ruleid);
 
     calc=
-        idUCS(node->MakeNode(child, ruleid, childHistory, heuristic(node->GetState())));
+        ida(node->MakeNode(child, ruleid, childHistory, heuristic(node->GetState())));
     
     // found it
     if (calc.first != nullptr) {
@@ -76,7 +76,7 @@ int main() {
       Node::CreateNode(state, nullptr, -1, currHistory);
 
   while (true) {
-    calc = idUCS(node);
+    calc = ida(node);
 
     if (calc.first != nullptr) {
       break;
