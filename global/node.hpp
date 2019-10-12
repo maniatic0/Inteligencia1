@@ -15,10 +15,17 @@ class Node : public std::enable_shared_from_this<Node> {
 public:
   /* Create a Node with a state from a parent with a rule, history and
    * accumulated cost. DO NOT CALL this directly */
-  explicit inline Node(state_t state, std::shared_ptr<Node> parent, int rule,
+  explicit inline Node(state_t state, std::shared_ptr<Node> &&parent, int rule,
                        int history, long long unsigned cost = 0)
       : m_parent(std::move(parent)), m_rule(rule), m_state(state),
         m_history(history), m_cost(cost) {}
+
+  /* Create a Node with a state from a parent with a rule, history and
+   * accumulated cost. DO NOT CALL this directly */
+  explicit inline Node(state_t state, const std::shared_ptr<Node> &parent,
+                       int rule, int history, long long unsigned cost = 0)
+      : m_parent(parent), m_rule(rule), m_state(state), m_history(history),
+        m_cost(cost) {}
 
   Node(Node &&) noexcept = default;
   Node(const Node &) = default;
@@ -29,18 +36,34 @@ public:
   /* Create a Node with a state from a parent with a rule, history and
    * accumulated cost */
   static std::shared_ptr<Node> CreateNode(state_t state,
-                                          std::shared_ptr<Node> parent,
+                                          std::shared_ptr<Node> &&parent,
                                           int rule, int history,
                                           long long unsigned cost = 0) {
     return std::make_shared<Node>(state, std::move(parent), rule, history,
                                   cost);
   }
 
+  /* Create a Node with a state from a parent with a rule, history and
+   * accumulated cost */
+  static std::shared_ptr<Node> CreateNode(state_t state,
+                                          const std::shared_ptr<Node> &parent,
+                                          int rule, int history,
+                                          long long unsigned cost = 0) {
+    return std::make_shared<Node>(state, parent, rule, history, cost);
+  }
+
   /* Get Parent Node */
   inline std::shared_ptr<Node> GetParent() { return m_parent; }
 
   /* Set Parent Node */
-  inline void SetParent(std::shared_ptr<Node> parent) { m_parent = parent; }
+  inline void SetParent(std::shared_ptr<Node> &&parent) {
+    m_parent = std::move(parent);
+  }
+
+  /* Set Parent Node */
+  inline void SetParent(const std::shared_ptr<Node> &parent) {
+    m_parent = parent;
+  }
 
   /* Get Rule from which we were derived */
   inline int GetRule() { return m_rule; }
@@ -67,9 +90,11 @@ public:
   inline void SetCost(long long unsigned cost) { m_cost = cost; }
 
   /* Create a new node with this one as its parent */
-  inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history, long long unsigned heuristic = 0) {
+  inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history,
+                                        long long unsigned heuristic = 0) {
     return std::make_shared<Node>(state, shared_from_this(), rule, history,
-                                  m_cost + get_fwd_rule_cost(GetRule()) + heuristic);
+                                  m_cost + get_fwd_rule_cost(GetRule()) +
+                                      heuristic);
   }
 
 private:

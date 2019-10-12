@@ -26,6 +26,20 @@
         "typeinfo": "cpp",
         "concepts": "cpp",
         "chrono": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "cmath": "cpp",
+        "ios": "cpp",
+        "iostream": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "system_error": "cpp",
+        "xfacet": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xlocinfo": "cpp",
+        "xlocnum": "cpp",
+        "xstring": "cpp"
     }
 }
