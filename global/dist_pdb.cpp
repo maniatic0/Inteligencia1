@@ -4,7 +4,7 @@
 int main(int argc, char **argv) {
     // read args
     if( argc < 2 ) {
-        printf("Usage: %s <pdb>\n", argv[0]);
+        printf("Usage: %s <prefix-for-pdb>\n", argv[0]);
         exit(-1);
     }
     const char *pdb_name = argv[1];
@@ -18,6 +18,7 @@ int main(int argc, char **argv) {
     printf("reading pdb into memory: abst=%s", abst_fname);
     abstraction_t *abst = read_abstraction_from_file(abst_fname);
     FILE *pdb_file = fopen(pdb_fname, "r");
+    assert(pdb_file != NULL);
     state_map_t *pdb = read_state_map(pdb_file);
     fclose(pdb_file);
 
