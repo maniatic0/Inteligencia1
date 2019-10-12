@@ -54,6 +54,29 @@ psvn2c_abstraction.c:
 	$(CXX) $(OPT) ../global/ida.cpp -include $< -include $*.man.hpp -o $@
 	rm -f $*.c
 
+%.generator: %.c ../global/generator.cpp
+	@echo "**** Constructing $@ ..."
+	@$(CXX) $(OPT) ../global/generator.cpp -include $< -o $@
+	@rm -f $*.c
+
+abstractor:
+	@echo "**** Constructing abstractor ..."
+	@$(CXX) $(OPT) ../src/abstractor.cpp ../src/psvn.cpp -o $@
+
+%.pdb: abstractor
+	@rm -f `basename $*`.abst `basename $*`.pdb `basename $*`.psvn
+	@echo "**** Running abstractor on `dirname $*`.psvn with `basename $*`.txt ..."
+	@./abstractor `dirname $*`.psvn `basename $*` < `basename $*`.txt > /dev/null
+	@make `basename $*`.distSummary
+	@echo "**** Constructing PDB `basename $*`.pdb ..."
+	@./`basename $*`.distSummary `basename $*`.pdb
+	@rm -f abstractor `basename $*`.distSummary
+
+%.dist_pdb: %.c ../global/dist_pdb.cpp
+	@echo "**** Constructing $@ ..."
+	@$(CXX) $(OPT) ../global/dist_pdb.cpp -include $< -o $@
+	@rm -f $*.c
+
 .PHONY: clean
 clean:
-	rm -fr *.succ *.dist *.distSummary *.bfs *.dfs *.ucs *.iducs *.ida *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
+	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb *.bfs *.dfs *.ucs *.iducs *.ida *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
