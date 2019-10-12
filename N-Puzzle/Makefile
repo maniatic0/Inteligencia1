@@ -1,7 +1,7 @@
 CC = gcc
 CXX = g++
-OPT = -g -Wall -O3 -Wno-unused-function -Wno-unused-variable
-PSVNOPT = --state_map --no_abstraction --backwards_moves --history_len=0
+OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
+PSVNOPT = --state_map --backward_moves --fwd_history_len=0 --bwd_history_len=0
 
 psvn2c_core.c:
 	cp ../src/psvn2c_core.c ./psvn2c_core.c
@@ -30,30 +30,6 @@ psvn2c_abstraction.c:
 	$(CXX) $(OPT) ../global/distSummary.cpp -include $< -o $@
 	rm -f $*.c
 
-%.bfs: %.c ../global/bfs.cpp
-	$(CXX) $(OPT) ../global/bfs.cpp -include $< -o $@
-	rm -f $*.c
-
-%.dfs: %.c ../global/dfs.cpp
-	$(CXX) $(OPT) ../global/dfs.cpp -include $< -o $@
-	rm -f $*.c
-
-%.ucs: %.c ../global/ucs.cpp
-	$(CXX) $(OPT) ../global/ucs.cpp -include $< -o $@
-	rm -f $*.c
-
-%.branch: %.c ../global/branch.cpp
-	$(CXX) $(OPT) ../global/branch.cpp -include $< -o $@
-	rm -f $*.c
-
-%.iducs: %.c ../global/iducs.cpp
-	$(CXX) $(OPT) ../global/iducs.cpp -include $< -o $@
-	rm -f $*.c
-
-%.ida: %.c ../global/ida.cpp
-	$(CXX) $(OPT) ../global/ida.cpp -include $< -include $*.man.hpp -o $@
-	rm -f $*.c
-
 %.generator: %.c ../global/generator.cpp
 	@echo "**** Constructing $@ ..."
 	@$(CXX) $(OPT) ../global/generator.cpp -include $< -o $@
@@ -76,6 +52,30 @@ abstractor:
 	@echo "**** Constructing $@ ..."
 	@$(CXX) $(OPT) ../global/dist_pdb.cpp -include $< -o $@
 	@rm -f $*.c
+
+%.bfs: %.c ../global/bfs.cpp
+	$(CXX) $(OPT) ../global/bfs.cpp -include $< -o $@
+	rm -f $*.c
+
+%.dfs: %.c ../global/dfs.cpp
+	$(CXX) $(OPT) ../global/dfs.cpp -include $< -o $@
+	rm -f $*.c
+
+%.ucs: %.c ../global/ucs.cpp
+	$(CXX) $(OPT) ../global/ucs.cpp -include $< -o $@
+	rm -f $*.c
+
+%.branch: %.c ../global/branch.cpp
+	$(CXX) $(OPT) ../global/branch.cpp -include $< -o $@
+	rm -f $*.c
+
+%.iducs: %.c ../global/iducs.cpp
+	$(CXX) $(OPT) ../global/iducs.cpp -include $< -o $@
+	rm -f $*.c
+
+%.ida: %.c ../global/ida.cpp
+	$(CXX) $(OPT) ../global/ida.cpp -include $< -include $*.heuristic.hpp -o $@
+	rm -f $*.c
 
 .PHONY: clean
 clean:

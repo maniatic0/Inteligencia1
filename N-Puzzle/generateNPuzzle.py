@@ -55,7 +55,7 @@ def generateFunc(width, N):
         #include <cstdlib>
         long long unsigned heuristic(const state_t *from) {{
             long long unsigned res = 0;
-            unsigned arr[{N}] = {{{','.join([str(i) for i in range(N)])}}};
+            static unsigned arr[{N}] = {{{','.join([str(i) for i in range(N)])}}};
             int x, y, x_r, y_r;
             for(int i = 0; i<{N}; ++i){{
                 x = from->vars[i] % {width};
@@ -152,7 +152,7 @@ if __name__ == "__main__":
         exit(-1)
 
     filename = str(height * witdh - 1) + "_puzzle.psvn"
-    filename_header = str(height * witdh - 1) + "_puzzle.man.hpp"
+    filename_header = str(height * witdh - 1) + "_puzzle.heuristic.hpp"
 
     if len(sys.argv) == 4:
         filename = sys.argv[3]
