@@ -100,10 +100,10 @@ private:
       strcpy(abst_fname, pdb_name);
       strcat(abst_fname, ".abst");
 
-      printf("Reading pdb into memory: abst=%s\n", abst_fname);
+      printf("Reading pdb into memory: abst=%s", abst_fname);
       m_abstraction.reset(read_abstraction_from_file(abst_fname));
 
-      printf("Reading pdb into memory: pdb=%s\n", pdb_fname);
+      printf(" pdb=%s\n", pdb_fname);
       FILE *pdb_file = fopen(pdb_fname, "r");
       assert(pdb_file != nullptr);
       m_map.reset(read_state_map(pdb_file));
