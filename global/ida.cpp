@@ -1,16 +1,17 @@
 #include <assert.h>
 #include <cstdint>
 #include <inttypes.h>
+#include <limits>
 #include <queue>
 #include <stdio.h>
 #include <stdlib.h>
 #include <utility>
-#include <limits>
+
 
 #include "node.hpp"
 #include "read_state.hpp"
 
-long long unsigned heuristic (const state_t *from);
+long long unsigned heuristic(const state_t *from);
 
 /* Avoid sending constants through stack */
 long long unsigned bound = 0;
@@ -19,12 +20,15 @@ long long unsigned bound = 0;
 int ruleid;       // Generated Rule id
 state_t child;    // Generated Child
 int childHistory; // Generated Child History
-std::pair<std::shared_ptr<Node>, long long unsigned> calc; // Calculation made by ida
+std::pair<std::shared_ptr<Node>, long long unsigned>
+    calc; // Calculation made by ida
 
-std::pair<std::shared_ptr<Node>, long long unsigned> ida(std::shared_ptr<Node> node) {
+std::pair<std::shared_ptr<Node>, long long unsigned>
+ida(std::shared_ptr<Node> node) {
   // Nodes just after the bound
   if (node->GetCost() > bound) {
-    return std::make_pair<std::shared_ptr<Node>, long long unsigned>(std::shared_ptr<Node>(nullptr), node->GetCost());
+    return std::make_pair<std::shared_ptr<Node>, long long unsigned>(
+        std::shared_ptr<Node>(nullptr), node->GetCost());
   }
 
   if (is_goal(node->GetState())) {
@@ -32,7 +36,8 @@ std::pair<std::shared_ptr<Node>, long long unsigned> ida(std::shared_ptr<Node> n
     return std::make_pair(std::move(node), cost);
   }
 
-  long long unsigned minFailedCost = std::numeric_limits<long long unsigned>::max();
+  long long unsigned minFailedCost =
+      std::numeric_limits<long long unsigned>::max();
   ruleid_iterator_t iter; // ruleid_terator_t is the type defined by the PSVN
 
   // LOOP THOUGH THE CHILDREN ONE BY ONE
@@ -48,9 +53,9 @@ std::pair<std::shared_ptr<Node>, long long unsigned> ida(std::shared_ptr<Node> n
     apply_fwd_rule(ruleid, node->GetState(), &child);
     childHistory = next_fwd_history(node->GetHistory(), ruleid);
 
-    calc=
-        ida(node->MakeNode(child, ruleid, childHistory, heuristic(node->GetState())));
-    
+    calc = ida(node->MakeNode(child, ruleid, childHistory,
+                              heuristic(node->GetState())));
+
     // found it
     if (calc.first != nullptr) {
       return calc;
