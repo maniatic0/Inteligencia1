@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable
+OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable -m64
 PSVNOPT = --state_map --backward_moves --fwd_history_len=1 --bwd_history_len=1
 
 psvn2c_core.c:
@@ -91,4 +91,4 @@ abstractor:
 
 .PHONY: clean
 clean:
-	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb *.bfs *.dfs *.ucs *.iducs *.ida *.ida_pdb *.a_star *.a_star_pdb *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
+	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb *.bfs *.dfs *.ucs *.iducs *.ida *.ida_pdb *.a_star *.a_star_pdb *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c abstractor *.dSYM *.o *~ __pycache__

@@ -105,7 +105,7 @@ int main() {
 
   print_state(stdout, node->GetState());
   std::printf("generated=%" PRIu64, generated);
-  std::printf(" cost=%" PRIu64, calc.first->GetCost());
+  std::printf(" cost=%" PRIu64, calc.second);
   std::printf(" time=%" PRIu64 "s", time_used);
   std::printf(" nodesPerSec=%f\n",
               static_cast<double>(generated) / static_cast<double>(time_used));
