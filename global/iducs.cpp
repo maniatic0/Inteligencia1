@@ -79,7 +79,7 @@ int main() {
     if (calc.first != nullptr) {
       break;
     }
-    bound += calc.second;
+    bound = calc.second;
   }
 
   // Print path

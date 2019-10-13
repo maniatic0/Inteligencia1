@@ -35,7 +35,7 @@ ida(std::shared_ptr<Node> node) {
   }
 
   if (is_goal(node->GetState())) {
-    long long unsigned cost = node->GetCostHeuristic();
+    long long unsigned cost = node->GetCost();
     return std::make_pair(std::move(node), cost);
   }
 
@@ -90,13 +90,15 @@ int main() {
   std::shared_ptr<Node> node =
       Node::CreateNode(state, nullptr, -1, currHistory);
 
+  bound = heuristic(node->GetState());
+
   while (true) {
     calc = ida(node);
 
     if (calc.first != nullptr) {
       break;
     }
-    bound += calc.second;
+    bound = calc.second;
   }
 
   time_used = watch.Stop<Stopwatch::sec>();
