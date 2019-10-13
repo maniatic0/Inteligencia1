@@ -265,3 +265,4 @@ bin/
 *.ida_pdb
 *.a_star
 *.a_star_pdb
+*.generator
