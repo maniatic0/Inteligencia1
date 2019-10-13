@@ -264,3 +264,4 @@ bin/
 *.ida
 *.ida_pdb
 *.a_star
+*.a_star_pdb

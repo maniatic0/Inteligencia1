@@ -85,6 +85,10 @@ abstractor:
 	$(CXX) $(OPT) ../global/a_star.cpp -include $< -include $*.heuristic.hpp -o $@
 	rm -f $*.c
 
+%.a_star_pdb: %.c ../global/a_star_pdb.cpp
+	$(CXX) $(OPT) ../global/a_star_pdb.cpp -include $< -o $@
+	rm -f $*.c
+
 .PHONY: clean
 clean:
-	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb *.bfs *.dfs *.ucs *.iducs *.ida *.ida_pdb *.a_star *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
+	rm -fr *.succ *.dist *.distSummary *.generator *.dist_pdb *.bfs *.dfs *.ucs *.iducs *.ida *.ida_pdb *.a_star *.a_star_pdb *.branch psvn2c_core.c psvn2c_state_map.c psvn2c_abstraction.c *.dSYM *.o *~ __pycache__
