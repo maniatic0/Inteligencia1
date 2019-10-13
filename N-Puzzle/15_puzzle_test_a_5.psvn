@@ -1,0 +1,57 @@
+# This file was created by the abstractor program.
+# The source PSVN file was: 15_puzzle.psvn
+# The abstraction used is stored in file: 15_puzzle_test_a_5.abst
+
+16
+16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16
+
+0 - - - X - - - - - - - - - - - => X - - - 0 - - - - - - - - - - - LABEL DOWN COST 1
+0 X - - - - - - - - - - - - - - => X 0 - - - - - - - - - - - - - - LABEL RIGHT COST 1
+- 0 - - - X - - - - - - - - - - => - X - - - 0 - - - - - - - - - - LABEL DOWN COST 1
+- 0 X - - - - - - - - - - - - - => - X 0 - - - - - - - - - - - - - LABEL RIGHT COST 1
+X 0 - - - - - - - - - - - - - - => 0 X - - - - - - - - - - - - - - LABEL LEFT COST 1
+- - 0 - - - X - - - - - - - - - => - - X - - - 0 - - - - - - - - - LABEL DOWN COST 1
+- - 0 X - - - - - - - - - - - - => - - X 0 - - - - - - - - - - - - LABEL RIGHT COST 1
+- X 0 - - - - - - - - - - - - - => - 0 X - - - - - - - - - - - - - LABEL LEFT COST 1
+- - - 0 - - - X - - - - - - - - => - - - X - - - 0 - - - - - - - - LABEL DOWN COST 1
+- - X 0 - - - - - - - - - - - - => - - 0 X - - - - - - - - - - - - LABEL LEFT COST 1
+- - - - 0 - - - X - - - - - - - => - - - - X - - - 0 - - - - - - - LABEL DOWN COST 1
+X - - - 0 - - - - - - - - - - - => 0 - - - X - - - - - - - - - - - LABEL UP COST 1
+- - - - 0 X - - - - - - - - - - => - - - - X 0 - - - - - - - - - - LABEL RIGHT COST 1
+- - - - - 0 - - - X - - - - - - => - - - - - X - - - 0 - - - - - - LABEL DOWN COST 1
+- X - - - 0 - - - - - - - - - - => - 0 - - - X - - - - - - - - - - LABEL UP COST 1
+- - - - - 0 X - - - - - - - - - => - - - - - X 0 - - - - - - - - - LABEL RIGHT COST 1
+- - - - X 0 - - - - - - - - - - => - - - - 0 X - - - - - - - - - - LABEL LEFT COST 1
+- - - - - - 0 - - - X - - - - - => - - - - - - X - - - 0 - - - - - LABEL DOWN COST 1
+- - X - - - 0 - - - - - - - - - => - - 0 - - - X - - - - - - - - - LABEL UP COST 1
+- - - - - - 0 X - - - - - - - - => - - - - - - X 0 - - - - - - - - LABEL RIGHT COST 1
+- - - - - X 0 - - - - - - - - - => - - - - - 0 X - - - - - - - - - LABEL LEFT COST 1
+- - - - - - - 0 - - - X - - - - => - - - - - - - X - - - 0 - - - - LABEL DOWN COST 1
+- - - X - - - 0 - - - - - - - - => - - - 0 - - - X - - - - - - - - LABEL UP COST 1
+- - - - - - X 0 - - - - - - - - => - - - - - - 0 X - - - - - - - - LABEL LEFT COST 1
+- - - - - - - - 0 - - - X - - - => - - - - - - - - X - - - 0 - - - LABEL DOWN COST 1
+- - - - X - - - 0 - - - - - - - => - - - - 0 - - - X - - - - - - - LABEL UP COST 1
+- - - - - - - - 0 X - - - - - - => - - - - - - - - X 0 - - - - - - LABEL RIGHT COST 1
+- - - - - - - - - 0 - - - X - - => - - - - - - - - - X - - - 0 - - LABEL DOWN COST 1
+- - - - - X - - - 0 - - - - - - => - - - - - 0 - - - X - - - - - - LABEL UP COST 1
+- - - - - - - - - 0 X - - - - - => - - - - - - - - - X 0 - - - - - LABEL RIGHT COST 1
+- - - - - - - - X 0 - - - - - - => - - - - - - - - 0 X - - - - - - LABEL LEFT COST 1
+- - - - - - - - - - 0 - - - X - => - - - - - - - - - - X - - - 0 - LABEL DOWN COST 1
+- - - - - - X - - - 0 - - - - - => - - - - - - 0 - - - X - - - - - LABEL UP COST 1
+- - - - - - - - - - 0 X - - - - => - - - - - - - - - - X 0 - - - - LABEL RIGHT COST 1
+- - - - - - - - - X 0 - - - - - => - - - - - - - - - 0 X - - - - - LABEL LEFT COST 1
+- - - - - - - - - - - 0 - - - X => - - - - - - - - - - - X - - - 0 LABEL DOWN COST 1
+- - - - - - - X - - - 0 - - - - => - - - - - - - 0 - - - X - - - - LABEL UP COST 1
+- - - - - - - - - - X 0 - - - - => - - - - - - - - - - 0 X - - - - LABEL LEFT COST 1
+- - - - - - - - X - - - 0 - - - => - - - - - - - - 0 - - - X - - - LABEL UP COST 1
+- - - - - - - - - - - - 0 X - - => - - - - - - - - - - - - X 0 - - LABEL RIGHT COST 1
+- - - - - - - - - X - - - 0 - - => - - - - - - - - - 0 - - - X - - LABEL UP COST 1
+- - - - - - - - - - - - - 0 X - => - - - - - - - - - - - - - X 0 - LABEL RIGHT COST 1
+- - - - - - - - - - - - X 0 - - => - - - - - - - - - - - - 0 X - - LABEL LEFT COST 1
+- - - - - - - - - - X - - - 0 - => - - - - - - - - - - 0 - - - X - LABEL UP COST 1
+- - - - - - - - - - - - - - 0 X => - - - - - - - - - - - - - - X 0 LABEL RIGHT COST 1
+- - - - - - - - - - - - - X 0 - => - - - - - - - - - - - - - 0 X - LABEL LEFT COST 1
+- - - - - - - - - - - X - - - 0 => - - - - - - - - - - - 0 - - - X LABEL UP COST 1
+- - - - - - - - - - - - - - X 0 => - - - - - - - - - - - - - - 0 X LABEL LEFT COST 1
+
+GOAL 0 1 2 2 4 5 2 2 8 9 2 2 12 2 2 2
