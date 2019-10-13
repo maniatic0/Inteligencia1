@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
     
     // write the state map to a file
     if( argc >= 2 ) {
-        file = fopen(argv[1], "w");
+        file = fopen(argv[1], "wb");
         if( file == NULL ) {
             fprintf(stderr, "could not open %s for writing\n", argv[1]);
             exit(-1);

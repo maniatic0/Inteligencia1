@@ -114,7 +114,7 @@ private:
 #ifdef DEBUG_PRINT
       printf(" pdb=%s\n", pdb_fname);
 #endif // DEBUG_PRINT
-      FILE *pdb_file = fopen(pdb_fname, "r");
+      FILE *pdb_file = fopen(pdb_fname, "rb");
       assert(pdb_file != nullptr);
       m_map.reset(read_state_map(pdb_file));
       fclose(pdb_file);

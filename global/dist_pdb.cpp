@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
     strcat(abst_fname, ".abst");
     printf("reading pdb into memory: abst=%s", abst_fname);
     abstraction_t *abst = read_abstraction_from_file(abst_fname);
-    FILE *pdb_file = fopen(pdb_fname, "r");
+    FILE *pdb_file = fopen(pdb_fname, "rb");
     assert(pdb_file != NULL);
     state_map_t *pdb = read_state_map(pdb_file);
     fclose(pdb_file);
