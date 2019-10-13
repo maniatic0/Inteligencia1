@@ -102,6 +102,9 @@ int main(int argc, const char **argv) {
   bound = heuristic(node->GetState());
 
   while (true) {
+#ifdef DEBUG_PRINT
+    printf("%" PRIu64 " ", bound);
+#endif // DEBUG_PRINT
     calc = ida(node);
 
     if (calc.first != nullptr) {
@@ -109,6 +112,10 @@ int main(int argc, const char **argv) {
     }
     bound = calc.second;
   }
+
+#ifdef DEBUG_PRINT
+  printf("\n");
+#endif // DEBUG_PRINT
 
   time_used = watch.Stop<Stopwatch::sec>();
 
