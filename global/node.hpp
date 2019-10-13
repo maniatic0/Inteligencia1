@@ -16,16 +16,18 @@ public:
   /* Create a Node with a state from a parent with a rule, history and
    * accumulated cost. DO NOT CALL this directly */
   explicit inline Node(state_t state, std::shared_ptr<Node> &&parent, int rule,
-                       int history, long long unsigned cost = 0)
+                       int history, long long unsigned cost = 0,
+                       long long unsigned heuristic = 0)
       : m_parent(std::move(parent)), m_rule(rule), m_state(state),
-        m_history(history), m_cost(cost) {}
+        m_history(history), m_cost(cost), m_heuristic(heuristic) {}
 
   /* Create a Node with a state from a parent with a rule, history and
    * accumulated cost. DO NOT CALL this directly */
   explicit inline Node(state_t state, const std::shared_ptr<Node> &parent,
-                       int rule, int history, long long unsigned cost = 0)
+                       int rule, int history, long long unsigned cost = 0,
+                       long long unsigned heuristic = 0)
       : m_parent(parent), m_rule(rule), m_state(state), m_history(history),
-        m_cost(cost) {}
+        m_cost(cost), m_heuristic(heuristic) {}
 
   Node(Node &&) noexcept = default;
   Node(const Node &) = default;
@@ -89,11 +91,20 @@ public:
   /* Set Cost */
   inline void SetCost(long long unsigned cost) { m_cost = cost; }
 
+  /* Get Heuristic */
+  inline long long unsigned GetHeuristic() { return m_heuristic; }
+
+  /* Set Heuristic */
+  inline void SetHeuristic(long long unsigned heuristic) { m_heuristic = heuristic; }
+
+  /* Get Cost with Heuristic */
+  inline long long unsigned GetCostHeuristic() { return m_cost + m_heuristic; }
+
   /* Create a new node with this one as its parent */
   inline std::shared_ptr<Node> MakeNode(state_t state, int rule, int history,
                                         long long unsigned heuristic = 0) {
     return std::make_shared<Node>(state, shared_from_this(), rule, history,
-                                  m_cost + get_fwd_rule_cost(GetRule()) +
+                                  m_cost + get_fwd_rule_cost(GetRule()),
                                       heuristic);
   }
 
@@ -112,6 +123,9 @@ private:
 
   /* Accumulated path cost */
   long long unsigned m_cost = 0;
+
+  /* Heuristic cost */
+  long long unsigned m_heuristic = 0;
 };
 
 /* Prints to console a path. It prints from the goal to the start */

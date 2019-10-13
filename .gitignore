@@ -263,3 +263,4 @@ bin/
 *.iducs
 *.ida
 *.ida_pdb
+*.a_star

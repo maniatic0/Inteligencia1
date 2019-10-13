@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <utility>
 
-
 #include "node.hpp"
 #include "read_state.hpp"
 
@@ -26,13 +25,13 @@ std::pair<std::shared_ptr<Node>, long long unsigned>
 std::pair<std::shared_ptr<Node>, long long unsigned>
 ida(std::shared_ptr<Node> node) {
   // Nodes just after the bound
-  if (node->GetCost() > bound) {
+  if (node->GetCostHeuristic() > bound) {
     return std::make_pair<std::shared_ptr<Node>, long long unsigned>(
-        std::shared_ptr<Node>(nullptr), node->GetCost());
+        std::shared_ptr<Node>(nullptr), node->GetCostHeuristic());
   }
 
   if (is_goal(node->GetState())) {
-    long long unsigned cost = node->GetCost();
+    long long unsigned cost = node->GetCostHeuristic();
     return std::make_pair(std::move(node), cost);
   }
 
