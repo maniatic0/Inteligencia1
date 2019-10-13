@@ -7,6 +7,8 @@
 #include "node.hpp"
 #include "pdb_handler.hpp"
 #include "priority_queue.hpp"
+#include "read_state.hpp"
+#include "stopwatch.hpp"
 
 PDBHandler pdbs;
 
@@ -22,9 +24,9 @@ int main(int argc, const char **argv) {
     return -1;
   }
 
-  // VARIABLES FOR INPUT
-  char str[MAX_LINE_LENGTH + 1];
-  ssize_t nchars;
+  // How many nodes were generated
+  long long unsigned generated = 0;
+
   state_t state; // state_t is defined by the PSVN API. It is the type used for
                  // individual states.
 
@@ -47,23 +49,15 @@ int main(int argc, const char **argv) {
   // Child Color
   const int *child_color;
 
-  // READ A LINE OF INPUT FROM stdin
-  printf("Please enter a state followed by ENTER: ");
-  if (fgets(str, sizeof str, stdin) == NULL) {
-    printf("Error: empty input line.\n");
+  if (!readState(&state)) {
     return -1;
   }
 
-  // CONVERT THE STRING TO A STATE
-  nchars = read_state(str, &state);
-  if (nchars <= 0) {
-    printf("Error: invalid state entered.\n");
-    return -1;
-  }
+  Stopwatch::Stopwatch watch(1, false);
 
-  printf("The state you entered is: ");
-  print_state(stdout, &state);
-  printf("\n");
+  Stopwatch::sec::rep time_used;
+
+  watch.Start();
 
   // Setup. Put Start node in queue to open, mark it as black and put its cost
   // to 0
@@ -71,6 +65,7 @@ int main(int argc, const char **argv) {
   int currHistory = init_history;
   std::shared_ptr<Node> node =
       Node::CreateNode(state, nullptr, -1, currHistory);
+  std::shared_ptr<Node> nodeOriginal = node;
   open.Add(0, 0, std::move(node));
   node = nullptr;
 
@@ -119,6 +114,7 @@ int main(int argc, const char **argv) {
       open.Add(
           child_new_cost + heuristic_child_cost, child_new_cost,
           node->MakeNode(child, ruleid, childHistory, heuristic_child_cost));
+      ++generated;
     }
 
     // Get State of the current node and mark it black
@@ -130,8 +126,19 @@ int main(int argc, const char **argv) {
     return 0;
   }
 
+  time_used = watch.Stop<Stopwatch::sec>();
+
+  print_state(stdout, nodeOriginal->GetState());
+  std::printf("generated=%" PRIu64, generated);
+  std::printf(" cost=%" PRIu64, node->GetCost());
+  std::printf(" time=%" PRIu64 "s", time_used);
+  std::printf(" nodesPerSec=%f\n",
+              static_cast<double>(generated) / static_cast<double>(time_used));
+
+#ifdef DEBUG_PRINT
   // Print path
   PrintPath(node);
+#endif // DEBUG_PRINT
 
   return 0;
 }

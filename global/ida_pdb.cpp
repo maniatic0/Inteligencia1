@@ -10,12 +10,16 @@
 #include "node.hpp"
 #include "pdb_handler.hpp"
 #include "read_state.hpp"
+#include "stopwatch.hpp"
 
 PDBHandler pdbs;
 
 long long unsigned heuristic(const state_t *from) {
   return pdbs.GetValue(from);
 }
+
+// How many nodes were generated
+long long unsigned generated = 0;
 
 /* Avoid sending constants through stack */
 long long unsigned bound = 0;
@@ -57,6 +61,7 @@ ida(std::shared_ptr<Node> node) {
     apply_fwd_rule(ruleid, node->GetState(), &child);
     childHistory = next_fwd_history(node->GetHistory(), ruleid);
 
+    ++generated;
     calc = ida(node->MakeNode(child, ruleid, childHistory,
                               heuristic(node->GetState())));
 
@@ -84,6 +89,12 @@ int main(int argc, const char **argv) {
     return -1;
   }
 
+  Stopwatch::Stopwatch watch(1, false);
+
+  Stopwatch::sec::rep time_used;
+
+  watch.Start();
+
   int currHistory = init_history;
   std::shared_ptr<Node> node =
       Node::CreateNode(state, nullptr, -1, currHistory);
@@ -97,6 +108,17 @@ int main(int argc, const char **argv) {
     bound += calc.second;
   }
 
+  time_used = watch.Stop<Stopwatch::sec>();
+
+  print_state(stdout, node->GetState());
+  std::printf("generated=%" PRIu64, generated);
+  std::printf(" cost=%" PRIu64, calc.first->GetCost());
+  std::printf(" time=%" PRIu64 "s", time_used);
+  std::printf(" nodesPerSec=%f\n",
+              static_cast<double>(generated) / static_cast<double>(time_used));
+#ifdef DEBUG_PRINT
   // Print path
   PrintPath(calc.first);
+#endif // DEBUG_PRINT
+  return 0;
 }

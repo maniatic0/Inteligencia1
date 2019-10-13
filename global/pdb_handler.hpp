@@ -2,14 +2,16 @@
 #ifndef PDB_HANDLER_HPP
 #define PDB_HANDLER_HPP 1
 
+#include <cassert>
 #include <cstdio>
 #include <cstring>
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
-#include <cassert>
 
+
+// #define DEBUG_PRINT 1 // Define this when importing to print debug info
 
 class PDBHandler {
 public:
@@ -46,9 +48,13 @@ public:
                     "(addition) to select the heuristic function");
         std::printf(" but it was %s\n", argv[startPos]);
       }
+#ifdef DEBUG_PRINT
       std::printf("Using an Addition Heuristic\n");
+#endif // DEBUG_PRINT
     } else {
+#ifdef DEBUG_PRINT
       std::printf("Using an Maximum Heuristic\n");
+#endif // DEBUG_PRINT
     }
 
     m_pdbs.reserve(argc - startPos - 1);
@@ -68,7 +74,7 @@ public:
   /* Get the Heuristic Value using PDBs for a state */
   long long unsigned GetValue(const state_t *state) {
     long long unsigned res = 0;
-    for(size_t i=0; i<m_pdbs.size(); ++i) {
+    for (size_t i = 0; i < m_pdbs.size(); ++i) {
       res += m_pdbs[i].GetValue(&m_asbtractStateHolder, state);
     }
     return res;
@@ -100,10 +106,14 @@ private:
       strcpy(abst_fname, pdb_name);
       strcat(abst_fname, ".abst");
 
+#ifdef DEBUG_PRINT
       printf("Reading pdb into memory: abst=%s", abst_fname);
+#endif // DEBUG_PRINT
       m_abstraction.reset(read_abstraction_from_file(abst_fname));
 
+#ifdef DEBUG_PRINT
       printf(" pdb=%s\n", pdb_fname);
+#endif // DEBUG_PRINT
       FILE *pdb_file = fopen(pdb_fname, "r");
       assert(pdb_file != nullptr);
       m_map.reset(read_state_map(pdb_file));
