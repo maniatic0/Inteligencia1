@@ -11,6 +11,8 @@
 #include "read_state.hpp"
 #include "stopwatch.hpp"
 
+// #define DEBUG_PRINT 1 // For Debug printing
+
 long long unsigned heuristic(const state_t *from);
 
 // How many nodes were generated
@@ -93,6 +95,9 @@ int main() {
   bound = heuristic(node->GetState());
 
   while (true) {
+#ifdef DEBUG_PRINT
+    printf("%" PRIu64 " ", bound);
+#endif // DEBUG_PRINT
     calc = ida(node);
 
     if (calc.first != nullptr) {
@@ -100,6 +105,9 @@ int main() {
     }
     bound = calc.second;
   }
+#ifdef DEBUG_PRINT
+  printf("\n");
+#endif // DEBUG_PRINT
 
   time_used = watch.Stop<Stopwatch::sec>();
 

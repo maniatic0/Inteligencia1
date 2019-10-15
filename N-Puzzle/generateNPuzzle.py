@@ -52,20 +52,22 @@ def generateMovementsRules(position, height, width):
 
 def generateFunc(width, N):
     format = f"""
-        #include <cstdlib>
-        long long unsigned heuristic(const state_t *from) {{
-            long long unsigned res = 0;
-            static unsigned arr[{N}] = {{{','.join([str(i) for i in range(N)])}}};
-            int x, y, x_r, y_r;
-            for(int i = 0; i<{N}; ++i){{
-                x = from->vars[i] % {width};
-                y = from->vars[i] / {width};
-                x_r = arr[i] % {width};
-                y_r = arr[i] / {width};
-                res += std::abs(x - x_r) + std::abs(y - y_r);
-            }}
-            return res;
+#include <cstdlib>
+long long unsigned heuristic(const state_t *from) {{
+    long long unsigned res = 0;
+    int x, y, x_r, y_r;
+    for(int i = 0; i <{ N}; ++i){{
+        if (from->vars[i] == 0) {{
+            continue;
         }}
+        x = from->vars[i] % {width};
+        y = from->vars[i] / {width};
+        x_r = i % {width};
+        y_r = i / {width};
+        res += std::abs(x - x_r) + std::abs(y - y_r);
+    }}
+    return res;
+}}
     """
     return format
 
