@@ -1,0 +1,30 @@
+# This file was created by the abstractor program.
+# The source PSVN file was: rubik3Sticker.psvn
+# The abstraction used is stored in file: rubik_m_corners_up.abst
+
+DOMAIN COLOUR 6
+  RED GREEN BLUE YELLOW ORANGE WHITE
+
+48
+1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 COLOUR 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBL - UBR - UFR - UFL - RUB - FDR - FDL - RUF - BUL - RDB - RDF - BUR - - - - - - - - - - - - - - - - - - - - - - - - LABEL UCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UFL - UBL - UBR - UFR - BUL - FDR - FDL - BUR - LUF - RDB - RDF - LUB - - - - - - - - - - - - - - - - - - - - - - - - LABEL U180 COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UFR - UFL - UBL - UBR - LUF - FDR - FDL - LUB - FUR - RDB - RDF - FUL - - - - - - - - - - - - - - - - - - - - - - - - LABEL UCCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - LUF - LDF - UBL - FUL - FUR - FDR - FDL - RUB - RDB - UFR - UFL - - - - - - - - - - - - - - - - - - - - - - - - LABEL FCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - DFL - DFR - UBL - FDL - FUL - FUR - FDR - RUB - RDB - LUF - LDF - - - - - - - - - - - - - - - - - - - - - - - - LABEL F180 COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - RDF - RUF - UBL - FDR - FDL - FUL - FUR - RUB - RDB - DFL - DFR - - - - - - - - - - - - - - - - - - - - - - - - LABEL FCCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - FUR - FDR - UFL - UBL - DFR - DBR - FDL - FUL - RUF - RUB - RDB - RDF - - - - - - - - - - - - - - - - - - - - - - - - LABEL RCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - DFR - DBR - UFL - UBL - BDR - BUR - FDL - FUL - RDF - RUF - RUB - RDB - - - - - - - - - - - - - - - - - - - - - - - - LABEL R180 COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - BDR - BUR - UFL - UBL - UBR - UFR - FDL - FUL - RDB - RDF - RUF - RUB - - - - - - - - - - - - - - - - - - - - - - - - LABEL RCCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - LUB - UFR - UFL - LDB - FUR - FDR - FDL - FUL - UBL - UBR - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL BCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - DBL - UFR - UFL - DBR - FUR - FDR - FDL - FUL - LDB - LUB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL B180 COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - RDB - UFR - UFL - RUB - FUR - FDR - FDL - FUL - DBR - DBL - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL BCCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - UFR - BUL - BDL - FUR - FDR - UFL - UBL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL LCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - UFR - DBL - DFL - FUR - FDR - BUL - BDL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL L180 COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - UFR - FDL - FUL - FUR - FDR - DBL - DFL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL LCCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - UFR - UFL - UBL - FUR - LDF - LDB - FUL - RUB - FDR - FDL - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL DCW COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - UFR - UFL - UBL - FUR - BDL - BDR - FUL - RUB - LDF - LDB - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL D180 COST 1
+- UBR - UFR - UFL - UBL - FUR - FDR - FDL - FUL - RUB - RDB - RDF - RUF - - - - - - - - - - - - - - - - - - - - - - - - => - UBR - UFR - UFL - UBL - FUR - RDB - RDF - FUL - RUB - BDL - BDR - RUF - - - - - - - - - - - - - - - - - - - - - - - - LABEL DCCW COST 1
+
+GOAL - RED - RED - RED - RED - GREEN - GREEN - GREEN - GREEN - BLUE - BLUE - BLUE - BLUE - - - - - - - - - - - - - - - - - - - - - - - -
