@@ -74,9 +74,24 @@ public:
   /* Get the Heuristic Value using PDBs for a state */
   long long unsigned GetValue(const state_t *state) {
     long long unsigned res = 0;
+#ifdef DEBUG_PRINT
+#if DEBUG_PRINT == 2
+      printf("Heuristic ");
+#endif // DEBUG_PRINT == 2
+#endif // DEBUG_PRINT
     for (size_t i = 0; i < m_pdbs.size(); ++i) {
+#ifdef DEBUG_PRINT
+#if DEBUG_PRINT == 2
+      printf("%" PRIu64 " ", res);
+#endif // DEBUG_PRINT == 2
+#endif // DEBUG_PRINT
       res += m_pdbs[i].GetValue(&m_asbtractStateHolder, state);
     }
+#ifdef DEBUG_PRINT
+#if DEBUG_PRINT == 2
+      printf("%" PRIu64 "\n", res);
+#endif // DEBUG_PRINT == 2
+#endif // DEBUG_PRINT
     return res;
   }
 

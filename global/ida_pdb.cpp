@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <utility>
 
+#define DEBUG_PRINT 1 // For Debug printing
+
 #include "node.hpp"
 #include "pdb_handler.hpp"
 #include "read_state.hpp"
@@ -101,9 +103,14 @@ int main(int argc, const char **argv) {
 
   bound = heuristic(node->GetState());
 
+#ifdef DEBUG_PRINT
+  printf("Heuristic " "%" PRIu64 "\n", bound);
+#endif // DEBUG_PRINT
+
   while (true) {
 #ifdef DEBUG_PRINT
     printf("%" PRIu64 " ", bound);
+    fflush(stdout);
 #endif // DEBUG_PRINT
     calc = ida(node);
 

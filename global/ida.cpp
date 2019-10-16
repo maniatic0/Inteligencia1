@@ -11,7 +11,7 @@
 #include "read_state.hpp"
 #include "stopwatch.hpp"
 
-// #define DEBUG_PRINT 1 // For Debug printing
+#define DEBUG_PRINT 1 // For Debug printing
 
 long long unsigned heuristic(const state_t *from);
 
@@ -97,6 +97,7 @@ int main() {
   while (true) {
 #ifdef DEBUG_PRINT
     printf("%" PRIu64 " ", bound);
+    fflush(stdout);
 #endif // DEBUG_PRINT
     calc = ida(node);
 
