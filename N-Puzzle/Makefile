@@ -1,4 +1,4 @@
-#! /bin/bash
+SHELL := /bin/bash 
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable -m64
