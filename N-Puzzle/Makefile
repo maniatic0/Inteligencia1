@@ -1,3 +1,4 @@
+#! /bin/bash
 CC = gcc
 CXX = g++
 OPT = -Wall -O3 -Wno-unused-function -Wno-unused-variable -m64
@@ -43,7 +44,7 @@ abstractor:
 	@rm -f `basename $*`.abst `basename $*`.pdb `basename $*`.psvn
 	@echo "**** Running abstractor on `dirname $*`.psvn with `basename $*`.txt ..."
 	@./abstractor `dirname $*`.psvn `basename $*` < `basename $*`.txt > /dev/null
-	@read -n 1 -s -r -p ""
+	@read -n 1 -s -r -p "Waiting for PSVN edit. Press Any Key to Continue"
 	@$(MAKE) `basename $*`.distSummary
 	@echo "**** Constructing PDB `basename $*`.pdb ..."
 	@./`basename $*`.distSummary `basename $*`.pdb
