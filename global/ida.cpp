@@ -104,7 +104,7 @@ int main() {
     if (calc.first != nullptr) {
       break;
     }
-    bound = calc.second;
+    bound = calc.second + 1;
   }
 #ifdef DEBUG_PRINT
   printf("\n");
