@@ -14,7 +14,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 ### Pruebas
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     2     |  2.000000 |    0ms   |   1.#INF00  |
 |   2   |     6     |  3.000000 |    0ms   |   1.#INF00  |
 |   3   |     18    |  3.000000 |    0ms   |   1.#INF00  |
@@ -37,7 +37,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 1:* 15 Puzzle con historia 0.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     2     |  2.000000 |    0ms   |   1.#INF00  |
 |   2   |     4     |  2.000000 |    0ms   |   1.#INF00  |
 |   3   |     10    |  2.500000 |    0ms   |   1.#INF00  |
@@ -68,7 +68,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 2:* 15 Puzzle con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     2     |  2.000000 |    0ms   |   1.#INF00  |
 |   2   |     6     |  3.000000 |    0ms   |   1.#INF00  |
 |   3   |     18    |  3.000000 |    0ms   |   1.#INF00  |
@@ -90,7 +90,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 3:* 24 Puzzle con historia 0.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     2     |  2.000000 |    0ms   |   1.#INF00  |
 |   2   |     4     |  2.000000 |    0ms   |   1.#INF00  |
 |   3   |     10    |  2.500000 |    0ms   |   1.#INF00  |
@@ -118,7 +118,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 4:* 24 Puzzle con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     3     |  3.000000 |    0ms   |   1.#INF00  |
 |   2   |     15    |  5.000000 |    0ms   |   1.#INF00  |
 |   3   |     75    |  5.000000 |    0ms   |   1.#INF00  |
@@ -135,7 +135,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 5:* Hanoi de 4 Astas y 12 Discos con historia 0.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     3     |  3.000000 |    0ms   |   1.#INF00  |
 |   2   |     15    |  5.000000 |    0ms   |   1.#INF00  |
 |   3   |     69    |  4.600000 |    0ms   |   1.#INF00  |
@@ -153,7 +153,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 6:* Hanoi de 4 Astas y 12 Discos con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     3     |  3.000000 |    0ms   |   1.#INF00  |
 |   2   |     15    |  5.000000 |    0ms   |   1.#INF00  |
 |   3   |     75    |  5.000000 |    0ms   |   1.#INF00  |
@@ -170,7 +170,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 7:* Hanoi de 4 Astas y 14 Discos con historia 0.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     3     |  3.000000 |    0ms   |   1.#INF00  |
 |   2   |     15    |  5.000000 |    0ms   |   1.#INF00  |
 |   3   |     69    |  4.600000 |    0ms   |   1.#INF00  |
@@ -188,7 +188,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 8:* Hanoi de 4 Astas y 14 Discos con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     3     |  3.000000 |    0ms   |   1.#INF00  |
 |   2   |     15    |  5.000000 |    0ms   |   1.#INF00  |
 |   3   |     75    |  5.000000 |    0ms   |   1.#INF00  |
@@ -205,7 +205,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 9:* Hanoi de 4 Astas y 18 Discos con historia 0.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     3     |  3.000000 |    0ms   |   1.#INF00  |
 |   2   |     15    |  5.000000 |    0ms   |   1.#INF00  |
 |   3   |     69    |  4.600000 |    0ms   |   1.#INF00  |
@@ -223,7 +223,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 10:* Hanoi de 4 Astas y 18 Discos con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     18    | 18.000000 |    0ms   |   1.#INF00  |
 |   2   |    324    | 18.000000 |    1ms   |  324.000000 |
 |   3   |    5832   | 18.000000 |    3ms   | 1944.000000 |
@@ -235,7 +235,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 11:* Rubik 3x3 con historia 0.
 
 | Depth |  Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:----------:|:---------:|:--------:|:-----------:|
+|------:|-----------:|----------:|---------:|------------:|
 |   1   |     18     | 18.000000 |    0ms   |   1.#INF00  |
 |   2   |     243    | 13.500000 |    0ms   |   1.#INF00  |
 |   3   |    3240    | 13.333333 |    2ms   | 1620.000000 |
@@ -248,7 +248,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 12:* Rubik 3x3 con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     12    | 12.000000 |    0ms   |   1.#INF00  |
 |   2   |    144    | 12.000000 |    0ms   |   1.#INF00  |
 |   3   |    1728   | 12.000000 |    0ms   |   1.#INF00  |
@@ -261,7 +261,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 13:* Topspin con 12 piezas y 4 puestos de giro con historia 0.
 
 | Depth | Generated | Branching | Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:-------:|:-----------:|
+|------:|----------:|----------:|--------:|------------:|
 |   1   |     12    | 12.000000 |   0ms   |   1.#INF00  |
 |   2   |    102    |  8.500000 |   0ms   |   1.#INF00  |
 |   3   |    812    |  7.960784 |   1ms   |  812.000000 |
@@ -275,7 +275,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 14:* Topspin con 12 piezas y 4 puestos de giro con historia 1.
 
 | Depth |  Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:----------:|:---------:|:--------:|:-----------:|
+|------:|-----------:|----------:|---------:|------------:|
 |   1   |     14     | 14.000000 |    0ms   |   1.#INF00  |
 |   2   |     196    | 14.000000 |    0ms   |   1.#INF00  |
 |   3   |    2744    | 14.000000 |    1ms   | 2744.000000 |
@@ -288,7 +288,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 15:* Topspin con 14 piezas y 4 puestos de giro con historia 0.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     14    | 14.000000 |    0ms   |   1.#INF00  |
 |   2   |    133    |  9.500000 |    0ms   |   1.#INF00  |
 |   3   |    1148   |  8.631579 |    1ms   | 1148.000000 |
@@ -302,7 +302,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 16:* Topspin con 14 piezas y 4 puestos de giro con historia 1.
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:---------:|:---------:|:--------:|:-----------:|
+|------:|----------:|----------:|---------:|------------:|
 |   1   |     17    | 17.000000 |    0ms   |   1.#INF00  |
 |   2   |    289    | 17.000000 |    0ms   |   1.#INF00  |
 |   3   |    4913   | 17.000000 |    0ms   |   1.#INF00  |
@@ -314,7 +314,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 *Tabla 17:* Topspin con 17 piezas y 4 puestos de giro con historia 0.
 
 | Depth |  Generated | Branching |  Elapsed |  NodesPerMs |
-|:-----:|:----------:|:---------:|:--------:|:-----------:|
+|------:|-----------:|----------:|---------:|------------:|
 |   1   |     17     | 17.000000 |    0ms   |   1.#INF00  |
 |   2   |     187    | 11.000000 |    0ms   |   1.#INF00  |
 |   3   |    1797    |  9.609626 |    0ms   |   1.#INF00  |
@@ -338,7 +338,7 @@ En las tablas se puede observar la explosión combinatoria de estos problemas, c
 Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utilizando la heurística de Manhattan y PDB Aditivo. Para este último, se utilizaron las particiones propuestas en clase.
 
 |  ID |                 State                 | Generated |  Cost  | Elapsed |   NodesPerSec  |
-|:---:|:-------------------------------------:|:---------:|:------:|:-------:|:--------------:|
+|----:|--------------------------------------:|----------:|-------:|--------:|---------------:|
 | 001 | 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |   1595614 |     53 |      2s |  797807.000000 |
 | 003 | 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |   8741843 |     55 |     14s |  624417.357143 |
 | 010 | 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |    637034 |     46 |      0s |            inf |
@@ -351,7 +351,7 @@ Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utili
 *Tabla 19:* 15 Puzzle A* con Manhattan.
 
 |  ID |                 State                 | Generated | Cost | Elapsed |   NodesPerSec  |
-|:---:|:-------------------------------------:|:---------:|:----:|:-------:|:--------------:|
+|----:|--------------------------------------:|----------:|-----:|--------:|---------------:|
 | 001 | 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |     97510 |   53 |      0s |            inf |
 | 003 | 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |    323663 |   55 |      0s |            inf |
 | 010 | 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |     33232 |   46 |      0s |            inf |
@@ -364,7 +364,7 @@ Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utili
 *Tabla 20:* 15 Puzzle A* con PDB Aditivo.
 
 |  ID |                 State                 |  Generated | Cost | Elapsed |   NodesPerSec   |
-|:---:|:-------------------------------------:|:----------:|:----:|:-------:|:---------------:|
+|----:|--------------------------------------:|-----------:|-----:|--------:|----------------:|
 | 001 | 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |   29138143 |   53 |     17s |  1714008.411765 |
 | 003 | 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |   25927815 |   55 |     14s |  1851986.785714 |
 | 010 | 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |    3756669 |   46 |      2s |  1878334.500000 |
@@ -377,7 +377,7 @@ Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utili
 *Tabla 21:* 15 Puzzle IDA* con Manhattan.
 
 |  ID |                 State                 | Generated | Cost | Elapsed |  NodesPerSec  |
-|:---:|:-------------------------------------:|:---------:|:----:|:-------:|:-------------:|
+|----:|--------------------------------------:|----------:|-----:|--------:|--------------:|
 | 001 | 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |    318549 |   53 |      0s |           inf |
 | 003 | 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |    897416 |   55 |      1s | 897416.000000 |
 | 010 | 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |    152119 |   46 |      0s |           inf |
@@ -406,7 +406,73 @@ Para el problema del TopSPin se corrieron en los algortimos de A* e IDA* utiliza
 
 Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB con A*:
 
+|  Depth  |           State           | Generated | Cost | Elapsed | NodesPerSec |
+|--------:|--------------------------:|----------:|-----:|--------:|------------:|
+|    2000 | 0 7 3 5 4 9 10 8 6 1 2 11 |       264 |   10 |      0s |         inf |
+|    2000 | 6 7 4 3 5 2 1 0 9 8 10 11 |       228 |   11 |      0s |         inf |
+|    2000 | 8 5 7 4 9 1 0 2 3 10 6 11 |      2676 |   15 |      0s |         inf |
+|    2000 | 10 1 5 4 3 0 8 9 7 6 2 11 |      1176 |   10 |      0s |         inf |
+|    2000 | 10 4 1 0 2 8 6 5 9 7 3 11 |       264 |   10 |      0s |         inf |
+| 2000000 | 7 5 2 9 4 8 0 10 6 1 3 11 |      3372 |    9 |      0s |         inf |
+
+*Tabla 23:* TopSpin 12-4 A* con PDB.
+
+|  Depth  |              State              | Generated | Cost | Elapsed | NodesPerSec |
+|--------:|--------------------------------:|----------:|-----:|--------:|------------:|
+|    2000 | 7 5 8 0 12 4 10 11 6 2 1 3 9 13 |     11732 |   15 |      0s |         inf |
+|    2000 | 10 5 9 3 2 6 1 8 11 7 4 12 0 13 |    105406 |   16 |      0s |         inf |
+|    2000 | 3 7 12 5 1 10 4 9 11 2 8 0 6 13 |      2338 |   16 |      0s |         inf |
+|    2000 | 2 12 5 4 6 10 0 8 3 1 11 7 9 13 |      3486 |   13 |      0s |         inf |
+|    2000 | 12 9 4 7 3 11 8 5 1 6 10 2 0 13 |       350 |   12 |      0s |         inf |
+| 2000000 | 2 1 11 8 12 4 3 7 6 5 0 10 9 13 |       770 |   13 |      0s |         inf |
+
+*Tabla 24:* TopSpin 14-4 A* con PDB.
+
+|  Depth  |                   State                  | Generated | Cost | Elapsed | NodesPerSec |
+|--------:|-----------------------------------------:|----------:|-----:|--------:|------------:|
+|    2000 | 9 0 1 11 4 10 7 5 14 2 3 13 8 6 15 12 16 |     90270 |   17 |      0s |         inf |
+|    2000 | 7 1 14 4 2 5 15 12 9 3 8 13 10 11 6 0 16 |     16286 |   16 |      0s |         inf |
+|    2000 | 7 10 4 14 9 3 1 5 0 11 13 2 8 6 12 15 16 |     90831 |   18 |      0s |         inf |
+|    2000 | 4 13 2 10 0 14 11 6 3 8 15 12 7 1 5 9 16 |      3689 |   18 |      0s |         inf |
+|    2000 | 12 10 6 8 15 3 2 11 14 5 13 7 9 0 1 4 16 |    175219 |   18 |      0s |         inf |
+| 2000000 | 6 3 8 14 10 7 0 13 12 15 1 5 11 4 9 2 16 |     22049 |   18 |      0s |         inf |
+
+*Tabla 25:* TopSpin 17-4 A* con PDB.
+
 Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB con IDA:
+
+|  Depth  |           State           | Generated | Cost | Elapsed | NodesPerSec |
+|--------:|--------------------------:|----------:|-----:|--------:|------------:|
+|    2000 | 0 7 3 5 4 9 10 8 6 1 2 11 |       620 |   10 |      0s |         inf |
+|    2000 | 6 7 4 3 5 2 1 0 9 8 10 11 |       396 |    9 |      0s |         inf |
+|    2000 | 8 5 7 4 9 1 0 2 3 10 6 11 |    192358 |   14 |      0s |         inf |
+|    2000 | 10 1 5 4 3 0 8 9 7 6 2 11 |      8438 |   12 |      0s |         inf |
+|    2000 | 10 4 1 0 2 8 6 5 9 7 3 11 |       601 |   15 |      0s |         inf |
+| 2000000 | 7 5 2 9 4 8 0 10 6 1 3 11 |     40827 |   13 |      0s |         inf |
+
+*Tabla 26:* TopSpin 12-4 IDA* con PDB.
+
+|  Depth  |              State              | Generated | Cost | Elapsed |   NodesPerSec  |
+|--------:|--------------------------------:|----------:|-----:|--------:|---------------:|
+|    2000 | 7 5 8 0 12 4 10 11 6 2 1 3 9 13 |  80306584 |   16 |     11s | 7300598.545455 |
+|    2000 | 10 5 9 3 2 6 1 8 11 7 4 12 0 13 |  41917425 |   16 |      5s | 8383485.000000 |
+|    2000 | 3 7 12 5 1 10 4 9 11 2 8 0 6 13 |    122740 |   18 |      0s |            inf |
+|    2000 | 2 12 5 4 6 10 0 8 3 1 11 7 9 13 |       119 |   14 |      0s |            inf |
+|    2000 | 12 9 4 7 3 11 8 5 1 6 10 2 0 13 |       205 |   14 |      0s |            inf |
+| 2000000 | 2 1 11 8 12 4 3 7 6 5 0 10 9 13 |    104237 |   13 |      0s |            inf |
+
+*Tabla 27:* TopSpin 14-4 IDA* con PDB.
+
+|  Depth  |                   State                  | Generated | Cost | Elapsed |   NodesPerSec  |
+|--------:|-----------------------------------------:|----------:|-----:|--------:|---------------:|
+|    2000 | 9 0 1 11 4 10 7 5 14 2 3 13 8 6 15 12 16 |  19384605 |   16 |      2s | 9692302.500000 |
+|    2000 | 7 1 14 4 2 5 15 12 9 3 8 13 10 11 6 0 16 |  73843613 |   16 |     10s | 7384361.300000 |
+|    2000 | 4 13 2 10 0 14 11 6 3 8 15 12 7 1 5 9 16 |   3101145 |   19 |      0s |            inf |
+|    2000 | 12 10 6 8 15 3 2 11 14 5 13 7 9 0 1 4 16 |   7856139 |   18 |      1s | 7856139.000000 |
+|    2000 | 3 13 4 12 14 5 10 11 1 9 6 8 15 0 7 2 16 | 761939775 |   18 |    107s | 7120932.476636 |
+| 2000000 | 6 3 8 14 10 7 0 13 12 15 1 5 11 4 9 2 16 | 127053268 |   18 |     17s | 7473721.647059 |
+
+*Tabla 28:* TopSpin 17-4 IDA* con PDB.
 
 ## Referencias
 
