@@ -60,7 +60,7 @@ ida(std::shared_ptr<Node> node) {
 
     ++generated;
     calc = ida(node->MakeNode(child, ruleid, childHistory,
-                              heuristic(node->GetState())));
+                              heuristic(&child)));
 
     // found it
     if (calc.first != nullptr) {
@@ -104,7 +104,7 @@ int main() {
     if (calc.first != nullptr) {
       break;
     }
-    bound = calc.second + 1;
+    bound = calc.second;
   }
 #ifdef DEBUG_PRINT
   printf("\n");
