@@ -329,7 +329,7 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 
 ### Análisis
 
-
+En las tablas se puede observar la explosión combinatoria de estos problemas, con cantidades masivas de estados generados. También, podemos observar el poder del prunning para limitar la cantidad de nodos generados, llegando a cotar casi a la mitad el branching factor de algunos problemas; aunque no funciona siempre, como por ejemplo en Hanoi no disminuye casi nada el branching factor.
 
 ## Heurísticas
 TODO
