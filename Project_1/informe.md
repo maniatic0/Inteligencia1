@@ -336,7 +336,7 @@ En las tablas se puede observar la explosión combinatoria de estos problemas, c
 
 ### 15 Puzzle
 
-Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utilizando la heurística de Manhattan y PDB Aditivo.
+Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utilizando la heurística de Manhattan y PDB Aditivo. Para este último, se utilizaron las particiones propuestas en clase.
 
 |                 State                 | Generated | Cost | Elapsed |  NodesPerSec  |
 |:-------------------------------------:|:---------:|:----:|:-------:|:-------------:|
