@@ -396,9 +396,14 @@ De las tablas, podemos observar la aceleración que proporcionan las PDB en ambo
 Para el problema del 24 Puzzle se corrieron los algortimos de A* e IDA* utilizando PDB Aditivo. Para este último, se utilizaron dos particiones: la propuesta en [1] y la siguiente:
 
 ![Particiones de 4](image.png)
+
 *Figura 1:* Particiones tamaño 4 para 24 Puzzle.
 
 Para la primera particion de tamano 6 los algoritmos no lograron caber en memori, suoeraban los 9GB de espacio requerido y espempazban a hacer paginacion en el disco, por consiguiente congelendo la maquina. Para la particion de tamano 4 IDA* llegaba unicamente al nivel 90, no pudiendo culminar en un tiempo razonable de 15 minutos.
+
+### Rubik 3x3
+
+En el Rubik 3x3 tuvimos los mismos problemas que 24 Puzzle, las abstracciones propuestas por Korf superaban nuestros límites de RAM y congelaban la computadora. Se probó utilizar las 8 esquinas [2], pero estos superaron los 8GB; también, se probó sólo las esquinas superiores e igualmente superó el RAM disponible. Se consideró que utilizar algo más pequeño que sólo las esquinas superiores, pero esto no ayudaría en la búsqueda en un espacio tan grande como el de Rubik 3x3. Por ende, se desistió de continuar buscando abstracciones.
 
 ### TopSpin
 
@@ -477,3 +482,5 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 ## Referencias
 
 [1] Additive Pattern Database Heuristics, Ariel Felner, Richard E. Korf, Sarit Hanan. 2004
+
+[2] Finding optimal solutions to Rubik’s Cube using pattern databases,Richard E. Korf, 1997.In Proceedings of the Fourteenth National Conference on Artificial Intelligence
