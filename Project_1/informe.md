@@ -483,4 +483,4 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 
 [1] Additive Pattern Database Heuristics, Ariel Felner, Richard E. Korf, Sarit Hanan. 2004
 
-[2] Finding optimal solutions to Rubik’s Cube using pattern databases,Richard E. Korf, 1997.In Proceedings of the Fourteenth National Conference on Artificial Intelligence
+[2] Finding optimal solutions to Rubik’s Cube using pattern databases,Richard E. Korf, 1997. In Proceedings of the Fourteenth National Conference on Artificial Intelligence
