@@ -395,11 +395,12 @@ De las tablas, podemos observar la aceleración que proporcionan las PDB en ambo
 
 Para el problema del 24 Puzzle se corrieron los algortimos de A* e IDA* utilizando PDB Aditivo. Para este último, se utilizaron dos particiones: la propuesta en [1] y la siguiente:
 
-![](image.png)
+![Particiones de 4](image.png)
+*Figura 1:* Particiones tamaño 4 para 24 Puzzle.
 
 Para la primera particion de tamano 6 los algoritmos no lograron caber en memori, suoeraban los 9GB de espacio requerido y espempazban a hacer paginacion en el disco, por consiguiente congelendo la maquina. Para la particion de tamano 4 IDA* llegaba unicamente al nivel 90, no pudiendo culminar en un tiempo razonable de 15 minutos.
 
-### TopSpin 
+### TopSpin
 
 Para el problema del TopSPin se corrieron en los algortimos de A* e IDA* utilizando PDB.
 
@@ -407,7 +408,6 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 
 Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB con IDA:
 
-
-## Referencias 
+## Referencias
 
 [1] Additive Pattern Database Heuristics, Ariel Felner, Richard E. Korf, Sarit Hanan. 2004
