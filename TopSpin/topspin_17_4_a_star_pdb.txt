@@ -1,0 +1,6 @@
+2000 9 0 1 11 4 10 7 5 14 2 3 13 8 6 15 12 16 generated=90270 cost=17 time=0s nodesPerSec=inf
+2000 7 1 14 4 2 5 15 12 9 3 8 13 10 11 6 0 16 generated=16286 cost=16 time=0s nodesPerSec=inf
+2000 7 10 4 14 9 3 1 5 0 11 13 2 8 6 12 15 16 generated=90831 cost=18 time=0s nodesPerSec=inf
+2000 4 13 2 10 0 14 11 6 3 8 15 12 7 1 5 9 16 generated=3689 cost=18 time=0s nodesPerSec=inf
+2000 12 10 6 8 15 3 2 11 14 5 13 7 9 0 1 4 16 generated=175219 cost=18 time=0s nodesPerSec=inf
+2000000 6 3 8 14 10 7 0 13 12 15 1 5 11 4 9 2 16 generated=22049 cost=18 time=0s nodesPerSec=inf
