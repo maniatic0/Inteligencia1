@@ -1,7 +1,8 @@
-depth=1 generated=17 factor=17.000000 elapsed=0ms nodesPerMs=1.#INF00
-depth=2 generated=289 factor=17.000000 elapsed=0ms nodesPerMs=1.#INF00
-depth=3 generated=4913 factor=17.000000 elapsed=0ms nodesPerMs=1.#INF00
-depth=4 generated=83521 factor=17.000000 elapsed=46ms nodesPerMs=1815.673913
-depth=5 generated=1419857 factor=17.000000 elapsed=749ms nodesPerMs=1895.670227
-depth=6 generated=24137569 factor=17.000000 elapsed=12077ms nodesPerMs=1998.639480
-depth=7 generated=410338673 factor=17.000000 elapsed=198265ms nodesPerMs=2069.647558
+Depth Generated Branching Elapsed NodesPerMs
+1 17 17.000000 0ms 1.#INF00
+2 289 17.000000 0ms 1.#INF00
+3 4913 17.000000 0ms 1.#INF00
+4 83521 17.000000 46ms 1815.673913
+5 1419857 17.000000 749ms 1895.670227
+6 24137569 17.000000 12077ms 1998.639480
+7 410338673 17.000000 198265ms 2069.647558
