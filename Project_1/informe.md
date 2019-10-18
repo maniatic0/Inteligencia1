@@ -332,4 +332,51 @@ Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego c
 En las tablas se puede observar la explosión combinatoria de estos problemas, con cantidades masivas de estados generados. También, podemos observar el poder del prunning para limitar la cantidad de nodos generados, llegando a cotar casi a la mitad el branching factor de algunos problemas; aunque no funciona siempre, como por ejemplo en Hanoi no disminuye casi nada el branching factor.
 
 ## Heurísticas
-TODO
+
+
+### 15 Puzzle
+
+Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utilizando la heurística de Manhattan y PDB Aditivo.
+
+|                 State                 | Generated | Cost | Elapsed |  NodesPerSec  |
+|:-------------------------------------:|:---------:|:----:|:-------:|:-------------:|
+| 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |  1595614  |  53  |    2s   | 797807.000000 |
+| 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |  8741843  |  55  |   14s   | 624417.357143 |
+| 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |   637034  |  46  |    0s   |      inf      |
+| 6 0 14 12 1 15 9 10 11 4 7 2 8 3 5 13 |  2467650  |  55  |    3s   | 822550.000000 |
+| 1 6 12 14 3 2 15 8 4 5 13 9 0 7 11 10 |  9011746  |  55  |   14s   | 643696.142857 |
+
+*Tabla 19:* 15 Puzzle A* con Manhattan.
+
+|                 State                 | Generated | Cost | Elapsed | NodesPerSec |
+|:-------------------------------------:|:---------:|:----:|:-------:|:-----------:|
+| 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |   97510   |  53  |    0s   |     inf     |
+| 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |   323663  |  55  |    0s   |     inf     |
+| 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |   33232   |  46  |    0s   |     inf     |
+| 6 0 14 12 1 15 9 10 11 4 7 2 8 3 5 13 |   111025  |  55  |    0s   |     inf     |
+| 1 6 12 14 3 2 15 8 4 5 13 9 0 7 11 10 |   50661   |  55  |    0s   |     inf     |
+
+*Tabla 20:* 15 Puzzle A* con PDB Aditivo.
+
+|                 State                 | Generated | Cost | Elapsed |   NodesPerSec  |
+|:-------------------------------------:|:---------:|:----:|:-------:|:--------------:|
+| 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |  29138143 |  53  |   17s   | 1714008.411765 |
+| 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |  25927815 |  55  |   14s   | 1851986.785714 |
+| 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |  3756669  |  46  |    2s   | 1878334.500000 |
+| 6 0 14 12 1 15 9 10 11 4 7 2 8 3 5 13 |  43833890 |  55  |   25s   | 1753355.600000 |
+| 1 6 12 14 3 2 15 8 4 5 13 9 0 7 11 10 | 183496368 |  55  |   105s  | 1747584.457143 |
+
+*Tabla 21:* 15 Puzzle IDA* con Manhattan.
+
+|                 State                 | Generated | Cost | Elapsed |  NodesPerSec  |
+|:-------------------------------------:|:---------:|:----:|:-------:|:-------------:|
+| 7 15 8 2 13 6 3 12 11 0 4 10 9 5 1 14 |   318549  |  53  |    0s   |      inf      |
+| 13 5 4 10 9 12 8 14 2 3 7 1 0 15 11 6 |   897416  |  55  |    1s   | 897416.000000 |
+| 3 14 9 11 5 4 8 2 13 12 6 7 10 1 15 0 |   152119  |  46  |    0s   |      inf      |
+| 6 0 14 12 1 15 9 10 11 4 7 2 8 3 5 13 |   950775  |  55  |    1s   | 950775.000000 |
+| 1 6 12 14 3 2 15 8 4 5 13 9 0 7 11 10 |   510908  |  55  |    0s   |      inf      |
+
+*Tabla 22:* 15 Puzzle IDA* con PDB Aditivo.
+
+De las tablas, podemos observar la aceleración que proporcionan las PDB en ambos algortimos. También, se puede observar la diferencia de velocidad entre A* e IDA*, siendo el primero más,la cual es más pronunciada cuando se utiliza Manhattan. Con respecto al uso de RAM, la diferencia es bastante notable entre ambos algortimos, A* consume bastante en comparación.
+
