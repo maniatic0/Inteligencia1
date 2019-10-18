@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <utility>
 
-#define DEBUG_PRINT 1 // For Debug printing
+//#define DEBUG_PRINT 1 // For Debug printing
 
 #include "node.hpp"
 #include "pdb_handler.hpp"
