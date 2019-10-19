@@ -407,7 +407,7 @@ En el Rubik 3x3 tuvimos los mismos problemas que 24 Puzzle, las abstracciones pr
 
 ### TopSpin
 
-Para el problema del TopSPin se corrieron en los algortimos de A* e IDA* utilizando PDB.
+Para el problema del TopSPin se corrieron los algortimos de A* e IDA* utilizando PDB. En terminos generales, los algoritmos solucionaron el problema considerablemente rapido para la profundidad 2000 y 2000000. No se presentaron problemas de limite de memoria.
 
 Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB con A*:
 
@@ -422,6 +422,8 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 
 *Tabla 23:* TopSpin 12-4 A* con PDB.
 
+Resultados para el TopSpin de tamano 14 utilizando PDB con A*:
+
 |  Depth  |              State              | Generated | Cost | Elapsed | NodesPerSec |
 |--------:|--------------------------------:|----------:|-----:|--------:|------------:|
 |    2000 | 7 5 8 0 12 4 10 11 6 2 1 3 9 13 |     11732 |   15 |      0s |         inf |
@@ -432,6 +434,8 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 | 2000000 | 2 1 11 8 12 4 3 7 6 5 0 10 9 13 |       770 |   13 |      0s |         inf |
 
 *Tabla 24:* TopSpin 14-4 A* con PDB.
+
+Resultados para el TopSpin de tamano 17 utilizando PDB con A*:
 
 |  Depth  |                   State                  | Generated | Cost | Elapsed | NodesPerSec |
 |--------:|-----------------------------------------:|----------:|-----:|--------:|------------:|
@@ -457,6 +461,8 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 
 *Tabla 26:* TopSpin 12-4 IDA* con PDB.
 
+Resultados para el TopSpin de tamano 14 utilizando PDB con IDA:
+
 |  Depth  |              State              | Generated | Cost | Elapsed |   NodesPerSec  |
 |--------:|--------------------------------:|----------:|-----:|--------:|---------------:|
 |    2000 | 7 5 8 0 12 4 10 11 6 2 1 3 9 13 |  80306584 |   16 |     11s | 7300598.545455 |
@@ -467,6 +473,8 @@ Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB 
 | 2000000 | 2 1 11 8 12 4 3 7 6 5 0 10 9 13 |    104237 |   13 |      0s |            inf |
 
 *Tabla 27:* TopSpin 14-4 IDA* con PDB.
+
+Resultados para el TopSpin de tamano 17 utilizando PDB con IDA:
 
 |  Depth  |                   State                  | Generated | Cost | Elapsed |   NodesPerSec  |
 |--------:|-----------------------------------------:|----------:|-----:|--------:|---------------:|
