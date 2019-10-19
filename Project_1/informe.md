@@ -559,6 +559,10 @@ Para la realización de las PDB para el problema de Hanoi se decidió utilizar u
 
 De estas corridas podemos ver las ventajas de A* en velocidad comparado con IDA*, especialmente en los problemas más grandes como en Hanoi 4-18, en donde IDA* no puede terminar en un tiempo razonable. Aunque esto tiene su trade off, visto en el consumo de RAM de A* en los problemas de 2000000 de profundidad en Hanoi 4-18.
 
+## Conclusión
+
+Luego de todas las pruebas, podemos observar el efecto de la explosión combinatoria en este tipo de problemas de búsqueda. Esto es especialmente visible en la cantidad de veces que nos quedamos sin RAM haciendo abstracciones o corriendo A* y cuando nos quedamos sin tiempo en IDA*. Otro aspecto importante que observamos es el intercambio de tiempo por RAM entre A* e IDA*, el cual nos dejó encontrar soluciones más rápido en A* hasta que llegabamos a problemas que consumían todo el RAM.
+
 ## Referencias
 
 [1] Additive Pattern Database Heuristics, Ariel Felner, Richard E. Korf, Sarit Hanan. 2004
