@@ -11,6 +11,12 @@ Para realizar los estudios de branching se decidió utilizar el algoritmo de Int
 
 Las pruebas consistieron en dejar el programa corriendo por 15 minutos y luego cortarlo para ver hasta que nivel llegó. Las pruebas se realizaron utilizando el autómata de prunning de PSVN tamaño 0 y tamaño 1.
 
+### Generación
+
+Para generar los programas de conteo de Branching se va a la carpeta de cada problema y se utiliza:
+
+```make nombre_de_psvn.branch```
+
 ### Pruebas
 
 | Depth | Generated | Branching |  Elapsed |  NodesPerMs |
@@ -333,9 +339,28 @@ En las tablas se puede observar la explosión combinatoria de estos problemas, c
 
 ## Heurísticas
 
+### Carga de PDB
+
+Para cargar las PDBs a A* e IDA* se tienen que generar los programas .a_star_pdb y .ida_pdb utilizando las siguientes reglas de Makefile en las carpetas del problema correspondiente:
+
+* ```make psvn_original.a_star_pdb```
+* ```make psvn_original.ida_pdb```
+
+Para poder cargar y ejecutar las PDB se tienen que utilizar los siguientes argumentos:
+
+* ```psvn_original.a_star_pdb TIPO archivo_pdb_1_sin_ext archivo_pdb_2_sin_ext archivo_pdb_1_sin_ext...```
+* ```psvn_original.ida_pdb TIPO archivo_pdb_1_sin_ext archivo_pdb_2_sin_ext archivo_pdb_1_sin_ext...```
+
+Donde TIPO es "a" o "m", dependiendo si las PDB son aditivas o utilizan el máximo.
+
 ### 15 Puzzle
 
 Para el problema del 15 Puzzle se corrieron en los algortimos de A* e IDA* utilizando la heurística de Manhattan y PDB Aditivo. Para este último, se utilizaron las particiones propuestas en clase.
+
+Para generar las PDB, se tienen que copiar los archivos *.psvn en la carpeta "N-Puzzle\15_puzzle_tests" a la carpeta "N-Puzzle" y usar la regla del Makefile de generación de ".distSummary". Para generar los programas con heurística Manhattan se utiliza:
+
+* ```make psvn_original.a_star```
+* ```make psvn_original.ida```  
 
 |  ID |                 State                 | Generated |  Cost  | Elapsed |   NodesPerSec  |
 |----:|--------------------------------------:|----------:|-------:|--------:|---------------:|
@@ -404,6 +429,8 @@ Para la primera particion de tamano 6 los algoritmos no lograron caber en memori
 ### Rubik 3x3
 
 En el Rubik 3x3 tuvimos los mismos problemas que 24 Puzzle, las abstracciones propuestas por Korf superaban nuestros límites de RAM y congelaban la computadora. Se probó utilizar las 8 esquinas [2], pero estos superaron los 8GB; también, se probó sólo las esquinas superiores e igualmente superó el RAM disponible. Se consideró que utilizar algo más pequeño que sólo las esquinas superiores, pero esto no ayudaría en la búsqueda en un espacio tan grande como el de Rubik 3x3. Por ende, se desistió de continuar buscando abstracciones.
+
+Para generar las PDB, se tiene usar la regla del Makefile de generación de ".distSummary" con los archivos "rubik_m_corners.psvn" y "rubik_m_corners_up.psvn" en la carpeta "RubiksCube".  
 
 ### TopSpin
 
@@ -490,6 +517,8 @@ Resultados para el TopSpin de tamano 17 utilizando PDB con IDA:
 ### Hanoi
 
 Para la realización de las PDB para el problema de Hanoi se decidió utilizar un patrón intercalado, una PDB tiene todos los discos pares y la otra PDB tiene todos los impares.
+
+Para generar las PDB, se tiene usar la regla del Makefile de generación de ".distSummary" con los archivos psvn en la carpeta relacionada a instancia del Problema de Hanoi, por ej "Hanoi\hanoi_4_12_pdb" para Hanoi de 4 astas y 12 discos, y luego correr A* o IDA* con ellos como PDB que utiliza máximo.
 
 |   Depth |                                                                                           State | Generated | Cost | Elapsed | NodesPerSec |
 |--------:|------------------------------------------------------------------------------------------------:|----------:|-----:|--------:|------------:|
