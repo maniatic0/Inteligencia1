@@ -436,6 +436,8 @@ Para generar las PDB, se tiene usar la regla del Makefile de generación de ".di
 
 Para el problema del TopSPin se corrieron los algortimos de A* e IDA* utilizando PDB. En terminos generales, los algoritmos solucionaron el problema considerablemente rapido para la profundidad 2000 y 2000000. No se presentaron problemas de limite de memoria.
 
+Para generar las PDB, se tiene usar la regla del Makefile de generación de ".distSummary" con los archivos "TopSpin/topspin_12_4.psvn" por ejemplo para el problema con 12 fichas y analogo para 14 y 17 y luego correr A* o IDA* con ellos como PDB que utiliza máximo.
+
 Se tienen los siguientes resultados para el TopSpin de tamano 12 utilizando PDB con A*:
 
 |  Depth  |           State           | Generated | Cost | Elapsed | NodesPerSec |
@@ -518,7 +520,7 @@ Resultados para el TopSpin de tamano 17 utilizando PDB con IDA:
 
 Para la realización de las PDB para el problema de Hanoi se decidió utilizar un patrón intercalado, una PDB tiene todos los discos pares y la otra PDB tiene todos los impares.
 
-Para generar las PDB, se tiene usar la regla del Makefile de generación de ".distSummary" con los archivos psvn en la carpeta relacionada a instancia del Problema de Hanoi, por ej "Hanoi\hanoi_4_12_pdb" para Hanoi de 4 astas y 12 discos, y luego correr A* o IDA* con ellos como PDB que utiliza máximo.
+Para generar las PDB, se tiene usar la regla del Makefile de generación de ".distSummary" con los archivos psvn en la carpeta relacionada a instancia del Problema de Hanoi, por ej "Hanoi/hanoi_4_12_pdb" para Hanoi de 4 astas y 12 discos, y luego correr A* o IDA* con ellos como PDB que utiliza máximo.
 
 |   Depth |                                                                                           State | Generated | Cost | Elapsed | NodesPerSec |
 |--------:|------------------------------------------------------------------------------------------------:|----------:|-----:|--------:|------------:|
